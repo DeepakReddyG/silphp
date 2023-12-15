@@ -15,23 +15,47 @@ if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h2>Directory Listing</h2>
 
-    <ul>
-        <li><a href="dbconn.php">Database Connection</a></li>
-        <li><a href="dbconn_status.php">Database Connection Status</a></li>
-        <li><a href="leaderboard.php">Leaderboard</a></li>
-        <li><a href="process_upload.php">Process Upload</a></li>
-        <li><a href="process_upload_participants.php">Process Upload Participants</a></li>
-        <li><a href="schema.sql">Database Schema</a></li>
-        <li><a href="search_participant.php">Search Participant</a></li>
-        <li><a href="upload_activities.php">Upload Activities</a></li>
-        <li><a href="upload_participants.php">Upload Participants</a></li>
-        <li><a href="upload_process_activities.php">Upload Process Activities</a></li>
-        <li><a href="view_activities.php">View Activities</a></li>
-    </ul>
+    <div class="box"><a href="dbconn.php">Database Connection</a></div>
+    <div class="box"><a href="dbconn_status.php">Database Connection Status</a></div>
+    <div class="box"><a href="leaderboard.php">Leaderboard</a></div>
+    <div class="box"><a href="process_upload.php">Process Upload</a></div>
+    <div class="box"><a href="process_upload_participants.php">Process Upload Participants</a></div>
+    <div class="box"><a href="schema.sql">Database Schema</a></div>
+    <div class="box"><a href="search_participant.php">Search Participant</a></div>
+    <div class="box"><a href="upload_activities.php">Upload Activities</a></div>
+    <div class="box"><a href="upload_participants.php">Upload Participants</a></div>
+    <div class="box"><a href="upload_process_activities.php">Upload Process Activities</a></div>
+    <div class="box"><a href="view_activities.php">View Activities</a></div>
+    <div class="box"><a href="view_grievances.php">View Grievances</a></div>
 </body>
 </html>';
     } else {

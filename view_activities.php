@@ -63,18 +63,9 @@
             margin: auto;
         }
 
-        table {
-            border-collapse: collapse;
-            margin-top: 20px;
-            border: 2px solid black;
-            width: 100%;
-        }
+       
 
-        th, td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 8px;
-        }
+        
         .participants_div table tr:hover {
             background-color: lightgrey;
         }
@@ -84,6 +75,52 @@
             color: white;
         }
 
+        .events-attended-table table {
+            border-collapse: collapse;
+            margin-top: 1rem;
+            border: 2px solid black;
+            width: 100%;
+        }
+        .events-attended-table table th {
+            border: 1px solid grey;
+            text-align: center;
+            padding: 0.5rem 0.3rem;
+        }
+        .events-attended-table table tr td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 0.1rem;
+        }
+        .events-attended-table table tr td:nth-child(1) {
+            width: 3%;
+        }
+        .events-attended-table table tr td:nth-child(2) {
+            width: 17%;
+        }
+        .events-attended-table table tr td:nth-child(3) {
+            width: 10%;
+        }
+        .events-attended-table table tr td:nth-child(4) {
+            width: 10%;
+        }
+        .events-attended-table table tr td:nth-child(5) {
+            width: 10%;
+        }
+        .events-attended-table table tr td:nth-child(6) {
+            width: 10%;
+        }
+        .events-attended-table table tr td:nth-child(7) {
+            width: 15%;
+        }
+        .events-attended-table table tr td:nth-child(8) {
+            width: 10%;
+        }
+        .events-attended-table table tr td:nth-child(9) {
+            width: 10%;
+        }
+        .events-attended-table table tr td:nth-child(10) {
+            width: 5%;
+        }
     </style>
 </head>
 <body>
@@ -128,7 +165,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<div class='participants_div'>";
+        echo "<div class='participants_div events-attended-table'>";
         echo "<table>";
         echo "<tr>
                 <th>ID</th>

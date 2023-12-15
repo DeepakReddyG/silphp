@@ -25,9 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt = $conn->prepare($sql);
 
-        // Bind parameters and execute the statement for each row in the CSV
         foreach ($csv_data as $row) {
-            // Assuming the CSV data includes points for each participant
             $stmt->bind_param('ssssssssi', ...$row);
             $stmt->execute();
         }

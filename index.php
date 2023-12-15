@@ -57,6 +57,9 @@
             padding: 8px;
             font-size: 1.2rem;
             outline: none;
+            outline: none;
+            border: none;
+            font-size: 1.2rem;
         }
 
         input[type="submit"] {
@@ -73,9 +76,12 @@
             margin: auto;
         }
 
+        .participants_div h3 {
+            font-size: 1.5rem;
+        }
+
         table {
             border-collapse: collapse;
-            margin-top: 20px;
             border: 2px solid black;
             width: 100%;
         }
@@ -83,7 +89,11 @@
         th, td {
             border: 1px solid black;
             text-align: left;
-            padding: 8px;
+            padding: 6px 3px;
+            background-color: #fff;
+        }
+        table th {
+            border: 1px solid grey;
         }
         .participants_div table tr:hover {
             background-color: lightgrey;
@@ -93,14 +103,57 @@
             background-color: black;
             color: white;
         }
+
+        .category_table {
+            
+        }
         .highlight_in_table {
             background-color: lightgrey;
             font-size: 1.5rem;
+        }
+        .category_table tr td:nth-child(1) {
+            width: 20%;
+        }
+        .category_table tr td:nth-child(2) {
+            width: 30%;
+        }
+        .category_table tr td:nth-child(3) {
+            width: 30%;
+        }
+        .category_table tr td:nth-child(4) {
+            width: 20%;
         }
         .developedby {
             position: absolute;
             bottom: 0;
         }
+
+        .events-attended tr th:nth-child(1) {
+            width: 3%;
+        }
+        .events-attended tr th:nth-child(2) {
+            width: 25%;
+        }
+        .events-attended tr th:nth-child(3) {
+            width: 17%;
+        }
+        .events-attended tr th:nth-child(4) {
+            width: 10%;
+        }
+        .events-attended tr th:nth-child(5) {
+            width: 10%;
+        }
+        .events-attended tr th:nth-child(6) {
+            width: 10%;
+        }
+        .events-attended tr th:nth-child(7) {
+            width: 15%;
+        }
+        .events-attended tr th:nth-child(8) {
+            width: 10%;
+        }
+
+
     </style>
 </head>
 <body>
@@ -131,10 +184,8 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        // Retrieve the username from the form
         $username = $_POST['username'];
 
-        // Prepare and execute the SQL query to get events attended by the participant
         $sql = "SELECT * FROM participants WHERE username = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('s', $username);
@@ -144,26 +195,29 @@
         if ($result->num_rows > 0) {
             echo "<div class='participants_div'>";
             
-            // Display the additional table for category-wise points
             echo "<h3>Category-wise Points for $username</h3>";
-            echo "<table>";
+            echo "<table class='category_table'>";
             echo "<tr>
                     <th>Category</th>
+                    <th>Activities Participated</th>
                     <th>Points</th>
                     <th>Percentage</th>
                   </tr>";
 
-            // Calculate and display the total points for each category
             $categoryPoints = array('TEC' => 0, 'ESO' => 0, 'LCH' => 0, 'IIE' => 0, 'HWB' => 0);
+            $categoryEvents = array('TEC' => 0, 'ESO' => 0, 'LCH' => 0, 'IIE' => 0, 'HWB' => 0);
 
             while ($row = $result->fetch_assoc()) {
                 // Update category points
                 $categoryPoints[$row['category']] += $row['points'];
+                // Update category events count
+                $categoryEvents[$row['category']] += 1;
             }
 
             foreach ($categoryPoints as $category => $points) {
                 echo "<tr>
                         <td>$category</td>
+                        <td>{$categoryEvents[$category]}</td>
                         <td>$points / 200</td>
                         <td>".($points/2)."%</td>
                       </tr>";
@@ -172,9 +226,10 @@
             // Calculate and display the total points from all categories
             $totalPoints = array_sum($categoryPoints);
             echo "<tr>
-                    <td>Total Points</td>
+                    <td>Total</td>
+                    <td>".array_sum($categoryEvents)."</td>
                     <td class='highlight_in_table'>$totalPoints / 1000</td>
-                    <td class='highlight_in_table'>(".($totalPoints/5)."%)</td>
+                    <td class='highlight_in_table'>".($totalPoints/5)."%</td>
                   </tr>";
 
             echo "</table>";
@@ -184,19 +239,23 @@
 
             // Display the table for events attended
             echo "<h3>Events Attended by $username</h3>";
-            echo "<table>";
+            echo "<table class='events-attended'>";
             echo "<tr>
+                    <th>Sno</th>
                     <th>Event Name</th>
                     <th>Club Name</th>
                     <th>Category</th>
                     <th>Venue</th>
-                    <th>Date of Participation</th>
+                    <th>Date</th>
                     <th>Time Slot</th>
                     <th>Points</th>
                   </tr>";
 
+            $sno = 1;
+
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
+                        <td>{$sno}</td>
                         <td>{$row['event_name']}</td>
                         <td>{$row['club_name']}</td>
                         <td>{$row['category']}</td>
@@ -205,6 +264,7 @@
                         <td>{$row['time_slot']}</td>
                         <td>{$row['points']}</td>
                       </tr>";
+                $sno++;
             }
 
             echo "</table>";
