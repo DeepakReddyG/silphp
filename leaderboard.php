@@ -5,25 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
     <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(151, 0, 3);
+            color: #fff;
+            margin: 0;
+            padding: 0rem 2rem;
+        }
+        .nav-one {
+            width: 50%;
+        }
+        .nav-two {
+            width: 50%;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .nav-two a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0rem 0.5rem;
+        }
+
+        .participants_div {
+            width: 90%;
+            margin: auto;
+        }
+
         table {
             border-collapse: collapse;
-            width: 100%;
             margin-top: 20px;
+            border: 2px solid black;
+            width: 100%;
         }
 
         th, td {
-            border: 1px solid #dddddd;
+            border: 1px solid black;
             text-align: left;
             padding: 8px;
         }
+        .participants_div table tr:hover {
+            background-color: lightgrey;
+        }
 
         th {
-            background-color: #f2f2f2;
+            background-color: black;
+            color: white;
+        }
+        .developedby {
+            position: absolute;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <h2>Leaderboard</h2>
+
+<div class="nav">
+        <div class="nav-one">
+            <h2>Student Activity Center | Activities Portal</h2>
+        </div>
+        <div class="nav-two">
+            <a href="./index.php">Home</a>
+            <a href="./leaderboard.php">Leaderboard</a>
+            <a href="./view_activities.php">View Activities</a>
+            <a href="./add_grievance.php">Grievances</a>
+            <a href="./admin.php">Admin</a>
+        </div>
+    </div>
 
     <?php
     require_once 'dbconn.php';
@@ -34,6 +92,7 @@
 
     if ($result->num_rows > 0) {
         // Display the leaderboard in a table
+        echo "<div class='participants_div'>";
         echo "<table>";
         echo "<tr>
                 <th>Rank</th>
@@ -57,6 +116,7 @@
         }
 
         echo "</table>";
+        echo "</div>";
     } else {
         echo "No data available in the leaderboard.";
     }

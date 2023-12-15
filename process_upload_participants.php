@@ -20,15 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         array_shift($csv_data);
 
         // Prepare and execute the SQL query to insert data into the 'participants' table
-        $sql = "INSERT INTO participants (username, name, event_name, club_name, date_of_participation, venue, time_slot, points)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO participants (username, name, event_name, club_name, category, date_of_participation, venue, time_slot, points)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
 
         // Bind parameters and execute the statement for each row in the CSV
         foreach ($csv_data as $row) {
             // Assuming the CSV data includes points for each participant
-            $stmt->bind_param('sssssssi', ...$row);
+            $stmt->bind_param('ssssssssi', ...$row);
             $stmt->execute();
         }
 

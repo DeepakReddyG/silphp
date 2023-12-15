@@ -23,6 +23,7 @@ create table participants (
     name varchar(255) not null,
     event_name varchar(255) not null,
     club_name varchar(255) not null,
+    category varchar(255) not null,
     date_of_participation date not null,
     venue varchar(255) not null,
     time_slot varchar(255) not null,
@@ -31,3 +32,11 @@ create table participants (
 );
 
 
+-- create a table for grievances
+create table grievances (
+    id int not null auto_increment,
+    username BIGINT not null,
+    issue_type enum ('attendance', 'points', 'disciplie', 'others') not null,
+    description TEXT not null,
+    primary key (id)
+);
