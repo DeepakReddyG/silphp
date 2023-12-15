@@ -93,6 +93,10 @@
             background-color: black;
             color: white;
         }
+        .highlight_in_table {
+            background-color: lightgrey;
+            font-size: 1.5rem;
+        }
         .developedby {
             position: absolute;
             bottom: 0;
@@ -119,7 +123,7 @@
             <br>
             <input type="submit" value="Search Participation">
         </form>
-        <p class="developedby">Designed and Developed by 220030805 Sai Manikanta & 2200031219 M Pavan Karthik</p>
+        <p class="developedby">Developed by Deepak Reddy Gathpa 2100031817 of ZeroOne Code Club</p>
     </div>
 
     <?php
@@ -146,6 +150,7 @@
             echo "<tr>
                     <th>Category</th>
                     <th>Points</th>
+                    <th>Percentage</th>
                   </tr>";
 
             // Calculate and display the total points for each category
@@ -159,9 +164,18 @@
             foreach ($categoryPoints as $category => $points) {
                 echo "<tr>
                         <td>$category</td>
-                        <td>$points</td>
+                        <td>$points / 200</td>
+                        <td>".($points/2)."%</td>
                       </tr>";
             }
+
+            // Calculate and display the total points from all categories
+            $totalPoints = array_sum($categoryPoints);
+            echo "<tr>
+                    <td>Total Points</td>
+                    <td class='highlight_in_table'>$totalPoints / 1000</td>
+                    <td class='highlight_in_table'>(".($totalPoints/5)."%)</td>
+                  </tr>";
 
             echo "</table>";
 
@@ -207,4 +221,4 @@
     $conn->close();
     ?>
 </body>
-</html>
+ </html>

@@ -31,8 +31,6 @@ create table participants (
     primary key (id)
 );
 
-
--- create a table for grievances
 create table grievances (
     id int not null auto_increment,
     username BIGINT not null,
