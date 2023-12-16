@@ -55,10 +55,16 @@
             width: 100%;
         }
 
-        th, td {
+        .participants_div table tr th {
+            background-color: #4b1e3e;
+            padding: 7px;
+            border: 1px solid grey;
+        }
+        .participants_div td {
             border: 1px solid black;
             text-align: left;
-            padding: 8px;
+            background-color: white;
+            padding: 5px;
         }
         .participants_div table tr:hover {
             background-color: lightgrey;

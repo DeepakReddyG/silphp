@@ -1,3 +1,27 @@
+<?php
+require_once 'dbconn.php';
+
+// Mapping of full category names to short forms
+$categoryMapping = [
+    "Extension Activities and Social Outreach Activities (ESO)" => "ESO",
+    "Liberal Arts, Creative Arts and Hobby Clubs (LCH)" => "LCH",
+    "Technology Events through central level clubs (TEC)" => "TEC",
+    "Innovation, Incubation & Entrepreneurship (IIE)" => "IIE",
+    "Health & Well Being (HWB)" => "HWB",
+];
+
+// Filter by category if selected
+$filterCategory = isset($_GET['filterCategory']) ? $_GET['filterCategory'] : '';
+
+// Build the SQL query based on the filter
+$sql = "SELECT * FROM activities";
+if (!empty($filterCategory)) {
+    $sql .= " WHERE category = '$filterCategory'";
+}
+
+$result = $conn->query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,24 +111,25 @@
             border: 2px solid black;
             width: 100%;
         }
-        .events-attended-table table th {
+        .events-attended-table table tr th {
+            background-color: #4b1e3e;
+            padding: 7px;
             border: 1px solid grey;
-            text-align: center;
-            padding: 0.5rem 0.3rem;
         }
         .events-attended-table table tr td {
             border: 1px solid black;
             text-align: center;
-            padding: 0.1rem;
+            padding: 0.3rem;
+            background-color: white;
         }
         .events-attended-table table tr td:nth-child(1) {
             width: 3%;
         }
         .events-attended-table table tr td:nth-child(2) {
-            width: 17%;
+            width: 27%;
         }
         .events-attended-table table tr td:nth-child(3) {
-            width: 10%;
+            width: 13%;
         }
         .events-attended-table table tr td:nth-child(4) {
             width: 10%;
@@ -119,57 +144,30 @@
             width: 15%;
         }
         .events-attended-table table tr td:nth-child(8) {
-            width: 10%;
+            width: 7%;
         }
-        .events-attended-table table tr td:nth-child(9) {
-            width: 10%;
-        }
-        .events-attended-table table tr td:nth-child(10) {
-            width: 5%;
-        }
+                .category-ESO { background-color: #FFD700; } /* Yellow */
+        .category-LCH { background-color: #00FFFF; } /* Cyan */
+        .category-TEC { background-color: #FF6347; } /* Tomato */
+        .category-IIE { background-color: #8A2BE2; } /* Blue Violet */
+        .category-HWB { background-color: #32CD32; } /* Lime Green */
     </style>
 </head>
 <body>
-    <div class="nav">
-        <div class="nav-one">
-            <h2>Student Activity Center | Activities Portal</h2>
+        <div class="nav">
+            <div class="nav-one">
+                <h2>Student Activity Center | Activities Portal</h2>
+            </div>
+            <div class="nav-two">
+                <a href="./index.php">Home</a>
+                <a href="./leaderboard.php">Leaderboard</a>
+                <a href="./view_activities.php">View Activities</a>
+                <a href="./add_grievance.php">Grievances</a>
+                <a href="./admin.php">Admin</a>
+            </div>
         </div>
-        <div class="nav-two">
-            <a href="./index.php">Home</a>
-            <a href="./leaderboard.php">Leaderboard</a>
-            <a href="./view_activities.php">View Activities</a>
-            <a href="./add_grievance.php">Grievances</a>
-            <a href="./admin.php">Admin</a>
-        </div>
-    </div>
-
-    <form action="" method="get" class="formdiv">
-        <label for="filterCategory">Filter by Category:</label>
-        <select id="filterCategory" name="filterCategory">
-            <option value="">All</option>
-            <option value="Extension Activities and Social Outreach Activities (ESO)">Extension Activities and Social Outreach Activities (ESO)</option>
-            <option value="Liberal Arts, Creative Arts and Hobby Clubs (LCH)">Liberal Arts, Creative Arts and Hobby Clubs (LCH)</option>
-            <option value="Technology Events through central level clubs (TEC)">Technology Events through central level clubs (TEC)</option>
-            <option value="Innovation, Incubation & Entrepreneurship (IIE)">Innovation, Incubation & Entrepreneurship (IIE)</option>
-            <option value="Health & Well Being (HWB)">Health & Well Being (HWB)</option>
-        </select>
-        <button type="submit">Filter</button>
-    </form>
 
     <?php
-    require_once 'dbconn.php';
-
-    // Filter by category if selected
-    $filterCategory = isset($_GET['filterCategory']) ? $_GET['filterCategory'] : '';
-
-    // Build the SQL query based on the filter
-    $sql = "SELECT * FROM activities";
-    if (!empty($filterCategory)) {
-        $sql .= " WHERE category = '$filterCategory'";
-    }
-
-    $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
         echo "<div class='participants_div events-attended-table'>";
         echo "<table>";
@@ -179,22 +177,21 @@
                 <th>Club Name</th>
                 <th>Category</th>
                 <th>Organized On</th>
-                <th>Student Organizer ID</th>
-                <th>Student Organizer Name</th>
                 <th>Venue</th>
                 <th>Time Slot</th>
                 <th>Points</th>
               </tr>";
 
         while ($row = $result->fetch_assoc()) {
+            // Get the short form of the category from the mapping
+            $shortCategory = isset($categoryMapping[$row['category']]) ? $categoryMapping[$row['category']] : $row['category'];
+
             echo "<tr>
                     <td>{$row['id']}</td>
                     <td>{$row['name']}</td>
                     <td>{$row['clubname']}</td>
-                    <td>{$row['category']}</td>
+                    <td>{$shortCategory}</td>
                     <td>{$row['organized_on']}</td>
-                    <td>{$row['student_organizer_id']}</td>
-                    <td>{$row['student_organizer_name']}</td>
                     <td>{$row['venue']}</td>
                     <td>{$row['time_slot']}</td>
                     <td>{$row['points']}</td>
