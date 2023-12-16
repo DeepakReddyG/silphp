@@ -10,12 +10,44 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(151, 0, 3);
+            color: #fff;
+            margin: 0;
+            padding: 0rem 2rem;
+        }
+        .nav-one {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-one h2 {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .nav-two {
+            width: 50%;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .nav-two a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0rem 0.5rem;
+        }
+
+        .formdiv {
+            width: fit-content;
+            border: 1px solid black;
+            margin: 2rem auto;
+        }
+
 
         h2 {
             text-align: center;
@@ -24,7 +56,7 @@
 
         form {
             max-width: 400px;
-            margin: 20px;
+            margin: auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -50,18 +82,30 @@
         }
 
         input[type="submit"] {
-            background-color: #007bff;
+            background-color: black;
             color: #fff;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: black;
         }
     </style>
 </head>
 <body>
+    <div class="nav">
+        <div class="nav-one">
+            <h2>Student Activity Center | Activities Portal</h2>
+        </div>
+        <div class="nav-two">
+            <a href="./index.php">Home</a>
+            <a href="./leaderboard.php">Leaderboard</a>
+            <a href="./view_activities.php">View Activities</a>
+            <a href="./add_grievance.php">Grievances</a>
+            <a href="./admin.php">Admin</a>
+        </div>
+    </div>
     <h2>Add Grievance</h2>
 
     <form action="process_grievance.php" method="post">

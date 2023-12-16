@@ -37,6 +37,12 @@
         }
         .nav-one {
             width: 50%;
+            display: flex;
+            align-items: center;
+        }
+        .nav-one h2 {
+            color: white;
+            font-size: 1.5rem;
         }
         .nav-two {
             width: 50%;
