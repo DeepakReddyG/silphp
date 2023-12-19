@@ -204,6 +204,7 @@
             echo "<h3>Category-wise Points for $username</h3>";
             echo "<table class='category_table'>";
             echo "<tr>
+                    <th>CO</th>
                     <th>Category</th>
                     <th>Activities Participated</th>
                     <th>Points</th>
@@ -220,18 +221,22 @@
                 $categoryEvents[$row['category']] += 1;
             }
 
+            $CO = 1;
             foreach ($categoryPoints as $category => $points) {
                 echo "<tr>
+                        <td>CO$CO</td>
                         <td>$category</td>
                         <td>{$categoryEvents[$category]}</td>
                         <td>$points / 200</td>
                         <td>".($points/2)."%</td>
                       </tr>";
+                $CO++;
             }
 
             // Calculate and display the total points from all categories
             $totalPoints = array_sum($categoryPoints);
             echo "<tr>
+                    <td></td>
                     <td>Total</td>
                     <td>".array_sum($categoryEvents)."</td>
                     <td class='highlight_in_table'>$totalPoints / 1000</td>
