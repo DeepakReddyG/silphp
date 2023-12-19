@@ -165,7 +165,7 @@
 <body>
     <div class="nav">
         <div class="nav-one">
-            <h2>Student Activity Center | Activities Portal</h2>
+            <h2>Student Activity Center | Student Central</h2>
         </div>
         <div class="nav-two">
             <a href="./index.php">Home</a>
