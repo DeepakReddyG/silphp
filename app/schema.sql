@@ -1,40 +1,55 @@
--- create database phpsil
+-- Create database phpsil
+CREATE DATABASE IF NOT EXISTS phpsil;
+USE phpsil;
 
-create database phpsil;
-use phpsil;
-
-create table activities (
-    id int not null auto_increment,
-    name varchar(255) not null,
-    clubname varchar(255) not null,
-    category varchar(255) not null,
-    organized_on date not null,
-    student_organizer_id BIGINT not null,
-    student_organizer_name varchar(255) not null,
-    venue varchar(255) not null,
-    time_slot varchar(255) not null,
-    points int not null,
-    primary key (id)
+-- Create table user_roles
+CREATE TABLE IF NOT EXISTS user_roles (
+    id INT NOT NULL AUTO_INCREMENT,
+    role VARCHAR(255) NOT NULL UNIQUE,
+    PRIMARY KEY (id)
 );
 
-create table participants (
-    id int not null auto_increment,
-    username BIGINT not null,
-    name varchar(255) not null,
-    event_name varchar(255) not null,
-    club_name varchar(255) not null,
-    category varchar(255) not null,
-    date_of_participation date not null,
-    venue varchar(255) not null,
-    time_slot varchar(255) not null,
-    points int not null,
-    primary key (id)
+-- Create table departments
+CREATE TABLE IF NOT EXISTS departments (
+    id INT NOT NULL AUTO_INCREMENT,
+    department VARCHAR(255) NOT NULL UNIQUE,
+    PRIMARY KEY (id)
 );
 
-create table grievances (
-    id int not null auto_increment,
-    username BIGINT not null,
-    issue_type enum ('attendance', 'points', 'disciplie', 'others') not null,
-    description TEXT not null,
-    primary key (id)
+-- Create table users
+CREATE TABLE IF NOT EXISTS users (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    role_id INT NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (role_id) REFERENCES user_roles(id)
+);
+
+-- Create table profiles
+CREATE TABLE IF NOT EXISTS profiles (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    department_id INT NOT NULL,
+    year ENUM('1', '2', '3', '4', '5') NOT NULL,
+    personal_email VARCHAR(255) NOT NULL,
+    college_email VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (department_id) REFERENCES departments(id)
+);
+
+
+
+-- create table clubs
+CREATE TABLE IF NOT EXISTS clubs (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    description VARCHAR(255) NOT NULL,
+    club_email VARCHAR(255) NOT NULL,
+    club_leadership int not null,
+    PRIMARY KEY (id)
 );
