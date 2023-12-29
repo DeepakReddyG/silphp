@@ -17,4 +17,11 @@ if ($conn->connect_error) {
     ];
 }
 
+// Function to sanitize input data
+function sanitizeInput($data)
+{
+    global $conn;
+    return mysqli_real_escape_string($conn, trim($data));
+}
+
 return $db_status;

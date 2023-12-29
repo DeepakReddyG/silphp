@@ -1,40 +1,68 @@
 -- create database phpsil
+CREATE DATABASE IF NOT EXISTS phpsil;
+USE phpsil;
 
-create database phpsil;
-use phpsil;
-
-create table activities (
-    id int not null auto_increment,
-    name varchar(255) not null,
-    clubname varchar(255) not null,
-    category varchar(255) not null,
-    organized_on date not null,
-    student_organizer_id BIGINT not null,
-    student_organizer_name varchar(255) not null,
-    venue varchar(255) not null,
-    time_slot varchar(255) not null,
-    points int not null,
-    primary key (id)
+-- create table users
+CREATE TABLE IF NOT EXISTS users (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'staff', 'club_head', 'club_member') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
 );
 
-create table participants (
-    id int not null auto_increment,
-    username BIGINT not null,
-    name varchar(255) not null,
-    event_name varchar(255) not null,
-    club_name varchar(255) not null,
-    category varchar(255) not null,
-    date_of_participation date not null,
-    venue varchar(255) not null,
-    time_slot varchar(255) not null,
-    points int not null,
-    primary key (id)
+-- create table clubs
+CREATE TABLE IF NOT EXISTS clubs (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    category ENUM('TEC', 'LCH', 'ESO', 'IIE', 'HWB'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
 );
 
-create table grievances (
-    id int not null auto_increment,
-    username BIGINT not null,
-    issue_type enum ('attendance', 'points', 'disciplie', 'others') not null,
-    description TEXT not null,
-    primary key (id)
+-- create table club_members
+CREATE TABLE IF NOT EXISTS club_members (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    club_id INT NOT NULL,
+    role ENUM('admin', 'staff', 'club_head', 'club_member') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (club_id) REFERENCES clubs(id)
+);
+
+-- create table activities
+CREATE TABLE IF NOT EXISTS activities (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    club_id INT NOT NULL,
+    category ENUM('TEC', 'LCH', 'ESO', 'IIE', 'HWB'),
+    student_organizer VARCHAR(255) NOT NULL,
+    faculty_incharge VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    venue VARCHAR(255) NOT NULL,
+    points INT NOT NULL,
+    report TEXT DEFAULT NULL, -- or DEFAULT 'No report available'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (club_id) REFERENCES clubs(id),
+    FOREIGN KEY (student_organizer) REFERENCES users(username),
+    FOREIGN KEY (faculty_incharge) REFERENCES users(username)
+);
+
+-- create table activity_registrations
+CREATE TABLE IF NOT EXISTS activity_registrations (
+    id INT NOT NULL AUTO_INCREMENT,
+    activity_id INT NOT NULL,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (activity_id) REFERENCES activities(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );

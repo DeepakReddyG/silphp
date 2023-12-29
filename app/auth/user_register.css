@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.nav {
+    width: 100%;
+    background-color: rgb(151, 0, 3);
+}
+.nav-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5vh;
+}
+.nav-in p {
+    color: white;
+    font-size: 1.5rem;
+}
+.user_registration_page {
+    width: 100%;
+    height: 100vh;
+}
+.user_registration_page_in {
+    height: 90vh;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.user_registration_page_form {
+    width: 100%;
+}
+.user_registration_page_form_in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.user_registration_page_form_in > form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    flex-direction: column;
+    width: 40%;
+}
+
+
+.user_registration_page_form_in_section {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.user_registration_page_form_in_section label {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.user_registration_page_form_in_section input {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.user_registration_page_form_in_section select {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+
+}
+
+
+
+.user_registration_page_form_in_section_four {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.user_registration_page_form_in_section_four button {
+    width: 30%;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline;
+}
+
+
+
+
+
+
+
+.footer {
+    background-color: rgb(151, 0, 3);
+}
+.footer-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 5vh;
+}
+.footer-in {    
+    color: white;
+}
+.footer-in a {
+    color: white;
+}
