@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.view-users-list {
+    width: 100%;
+    padding: 2rem 0rem;
+}
+.view-users-list-in {
+    width: 90%;
+    margin: auto;
+}
+.view-users-header {
+    width: 100%;
+}
+.view-users-header-in {
+    width: 100%;
+}
+.view-users-header-in h1 {
+    background-color: rgb(73, 29, 63);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+.view-users-list-on {
+    width: 90%;
+    margin: auto;
+}
+.view-users-list-one-in {
+    width: 100%;
+}
+.view-users-list-one-in table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.view-users-list-one-in table tr th {
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    color: white;
+    border: 1px solid grey;
+}
+.view-users-list-one-in table tr td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.view-users-list-one-in table thead tr th:nth-child(1) {
+    width: 5%;
+}
+.view-users-list-one-in table thead tr th:nth-child(2) {
+    width: 20%;
+}
+.view-users-list-one-in table thead tr th:nth-child(3) {
+    width: 25%;
+}
+.view-users-list-one-in table thead tr th:nth-child(4) {
+    width: 50%;
+}

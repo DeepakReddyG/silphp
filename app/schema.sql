@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'staff', 'club_head', 'club_member') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE (username)
 );
 
 -- create table clubs
@@ -65,4 +66,20 @@ CREATE TABLE IF NOT EXISTS activity_registrations (
     PRIMARY KEY (id),
     FOREIGN KEY (activity_id) REFERENCES activities(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- create a table for users log
+CREATE TABLE IF NOT EXISTS users_log (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    year enum('1', '2', '3', '4', '5') NOT NULL,
+    branch enum('CSE', 'AIDS', 'CSI','ECE', 'EEE', 'ME', 'Civil', 'Others') NOT NULL,
+    club_name int NOT NULL,
+    purpose TEXT NOT NULL,
+    date DATE NOT NULL,
+    in_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    out_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (club_name) REFERENCES clubs(id)
 );
