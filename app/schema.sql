@@ -2,16 +2,17 @@
 CREATE DATABASE IF NOT EXISTS phpsil;
 USE phpsil;
 
--- create table users
 CREATE TABLE IF NOT EXISTS users (
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     role ENUM('admin', 'staff', 'club_head', 'club_member') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('active', 'inactive') DEFAULT 'active', -- Added 'status' column
     PRIMARY KEY (id),
     UNIQUE (username)
 );
+
 
 -- create table clubs
 CREATE TABLE IF NOT EXISTS clubs (

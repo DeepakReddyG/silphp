@@ -43,7 +43,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="template-two-in-one-boxes">
                             <div class="template-two-in-one-boxes-box">
                                 <div class="template-two-in-one-boxes-box-in">
-                                    <a href="#">Home</a>
+                                    <a href="./admin_index.php">Home</a>
                                 </div>
                             </div>
                             <div class="template-two-in-one-boxes-box">
