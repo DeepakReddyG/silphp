@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS clubs (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
     category ENUM('TEC', 'LCH', 'ESO', 'IIE', 'HWB'),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)

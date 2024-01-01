@@ -43,7 +43,7 @@ if (!isset($_SESSION['username'])) {
                             <?php include_once 'admin_sidebar.php'; ?>
                     </div>
                     <div class="template-two-in-two">
-
+                            <?php include_once 'view_clubs.php'; ?>
                     </div>
                 </div>
             </div>

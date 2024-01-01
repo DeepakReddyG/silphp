@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     break;
 
                 case 'club_member':
-                    header("Location: club_member_index.php");
+                    header("Location: ../user_modules/club_member/club_member_index.php");
                     exit();
                     break;
                     

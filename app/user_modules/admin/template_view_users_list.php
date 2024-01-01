@@ -40,70 +40,10 @@ if (!isset($_SESSION['username'])) {
             <div class="template-two">
                 <div class="template-two-in">
                     <div class="template-two-in-one">
-                        <div class="template-two-in-one-boxes">
-                            <div class="template-two-in-one-boxes-box">
-                                <div class="template-two-in-one-boxes-box-in">
-                                    <a href="./admin_index.php">Home</a>
-                                </div>
-                            </div>
-                            <div class="template-two-in-one-boxes-box">
-                                <div class="template-two-in-one-boxes-box-in">
-                                    <a href="#" class="toggle-sub">User Management</a>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="./template_view_users_list.php">View Users</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">Role based view</a> 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="template-two-in-one-boxes-box">
-                                <div class="template-two-in-one-boxes-box-in">
-                                    <a class="toggle-sub" href="#">Clubs</a>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">Diary</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">All Clubs</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">TEC Clubs</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">LCH Clubs</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">ESO Clubs</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">IIE Clubs</a> 
-                                    </div>
-                                    <div class="template-two-in-one-box-in-sub">
-                                        <a href="#">HWB Clubs</a> 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="template-two-in-one-boxes-box">
-                                <div class="template-two-in-one-boxes-box-in">
-                                    <a href="#">Activities</a>
-                                </div>
-                            </div>
-                            <div class="template-two-in-one-boxes-box">
-                                <div class="template-two-in-one-boxes-box-in">
-                                    <a href="#">Log Book</a>
-                                </div>
-                            </div>
-                            <div class="template-two-in-one-boxes-box">
-                                <div class="template-two-in-one-boxes-box-in">
-                                    <a href="#">Grievancies</a>
-                                </div>
-                            </div>
-                            
-                        </div>
+                            <?php include_once 'admin_sidebar.php'; ?>
                     </div>
                     <div class="template-two-in-two">
-                            <!-- include the view_users.php -->
-                            <?php include_once __DIR__ . '/../../user_modules/admin/view_users_list.php'; ?>
+                            <?php include_once 'view_users_list.php'; ?>
                     </div>
                 </div>
             </div>

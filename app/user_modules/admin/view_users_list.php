@@ -94,9 +94,8 @@ $conn->close();
                             echo "<td>
                                     <form method='post'>
                                         <input type='hidden' name='username_to_delete' value='" . $row['username'] . "'>
-                                        <input type='submit' name='delete' value='Deactivate'>
+                                        <input class='deactivate-button' type='submit' name='delete' value='Deactivate'>
                                     </form>
-                                    <input type='button' value='Edit' onclick='toggleEdit(" . $row['id'] . ")'>
                                     <input type='button' value='Save' onclick='saveEdit(" . $row['id'] . ")' style='display:none;'>
                                 </td>";
                             echo "</tr>";
