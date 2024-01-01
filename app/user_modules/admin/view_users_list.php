@@ -5,8 +5,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start();
-
 include_once __DIR__ . '/../../dbconn.php';
 
 // Check if the form is submitted for delete
@@ -16,7 +14,6 @@ if (isset($_POST['delete'])) {
     // Check if the logged-in user is trying to deactivate themselves
     if ($_SESSION['username'] === $username_to_delete) {
         echo "<script>alert('Error: You cannot deactivate yourself.');</script>";
-        die("Error: You cannot deactivate yourself.");
     }
 
     $updateQuery = "UPDATE users SET status='inactive' WHERE username='$username_to_delete'";
