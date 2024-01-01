@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.view-clubs-list {
+    width: 100%;
+    padding: 2rem 0rem;
+}
+.view-clubs-list-in {
+    width: 90%;
+    margin: auto;
+}
+
+.view-clubs-list-in h1 {
+    background-color: rgb(73, 29, 63);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+.view-clubs-list-one-pre {
+    width: fit-content;
+    padding: 1rem 0rem;
+}
+.view-clubs-list-one-pre a {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 1px solid rgb(73, 29, 63);
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+.view-clubs-list-one-in {
+    width: 100%;
+}
+.view-clubs-list-one-in table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+.view-clubs-list-one-in table tr th {
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.3rem;
+}
+.view-clubs-list-one-in table tr th, td {
+    border: 1px solid black;
+    padding: 0.2rem;
+}
+.view-clubs-list-one-in table tr th:nth-child(1) {
+    width: 5%;
+}
+.view-clubs-list-one-in table tr th:nth-child(2) {
+    width: 15%;
+}
+.view-clubs-list-one-in table tr th:nth-child(3) {
+    width: 55%;
+}
+.view-clubs-list-one-in table tr th:nth-child(4) {
+    width: 10%;
+}
+.view-clubs-list-one-in table tr th:nth-child(5) {
+    width: 15%;
+}
