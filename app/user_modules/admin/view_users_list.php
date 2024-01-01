@@ -5,11 +5,20 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+
 include_once __DIR__ . '/../../dbconn.php';
 
 // Check if the form is submitted for delete
 if (isset($_POST['delete'])) {
     $username_to_delete = $_POST['username_to_delete'];
+
+    // Check if the logged-in user is trying to deactivate themselves
+    if ($_SESSION['username'] === $username_to_delete) {
+        echo "<script>alert('Error: You cannot deactivate yourself.');</script>";
+        die("Error: You cannot deactivate yourself.");
+    }
+
     $updateQuery = "UPDATE users SET status='inactive' WHERE username='$username_to_delete'";
     $updateResult = $conn->query($updateQuery);
 
@@ -96,6 +105,7 @@ $conn->close();
                                         <input type='hidden' name='username_to_delete' value='" . $row['username'] . "'>
                                         <input class='deactivate-button' type='submit' name='delete' value='Deactivate'>
                                     </form>
+                                    <input type='button' value='Edit' onclick='toggleEdit(" . $row['id'] . ")'>
                                     <input type='button' value='Save' onclick='saveEdit(" . $row['id'] . ")' style='display:none;'>
                                 </td>";
                             echo "</tr>";

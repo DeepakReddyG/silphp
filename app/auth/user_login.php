@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = sanitizeInput($_POST["username"]);
     $password = sanitizeInput($_POST["password"]);
 
-    $selectQuery = "SELECT * FROM users WHERE username = ?";
+    $selectQuery = "SELECT * FROM users WHERE username = ? AND status = 'active'";
     
     $stmt = $conn->prepare($selectQuery);
     $stmt->bind_param("s", $username);
@@ -35,11 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
 
         if (password_verify($password, $user['password'])) {
-             $_SESSION['username'] = $username;
-             $_SESSION['role'] = $user['role'];
+            $_SESSION['username'] = $username;
+            $_SESSION['role'] = $user['role'];
             
-             $message = "Login successful!";
-             $statusClass = "success"; 
+            $message = "Login successful!";
+            $statusClass = "success"; 
             
             switch ($user['role']) {
                 case 'admin':
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $statusClass = "error";
         }
     } else {
-        $message = "User not found. Please check your username.";
+        $message = "User not found or deactivated by admin.";
         $statusClass = "error"; // Add a class for styling error message
     }
 
