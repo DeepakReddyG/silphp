@@ -8,12 +8,14 @@ error_reporting(E_ALL);
 include_once __DIR__ . '/../../dbconn.php';
 
 // Check if the form is submitted for delete
-if (isset($_POST['delete'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $username_to_delete = $_POST['username_to_delete'];
 
     // Check if the logged-in user is trying to deactivate themselves
     if ($_SESSION['username'] === $username_to_delete) {
         echo "<script>alert('Error: You cannot deactivate yourself.');</script>";
+        echo "<script>document.location.href='template_view_users_list.php';</script>";
+        exit(); // Stop further execution
     }
 
     $updateQuery = "UPDATE users SET status='inactive' WHERE username='$username_to_delete'";
