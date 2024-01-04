@@ -41,7 +41,16 @@
     border: none;
     border-radius: 0.2rem;
     cursor: pointer;
-
+}
+.edit-button {
+    background-color: blue;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
 }
 .view-users-list-one-in {
     width: 100%;
@@ -75,8 +84,11 @@
     width: 20%;
 }
 .view-users-list-one-in table thead tr th:nth-child(4) {
-    width: 40%;
+    width: 20%;
 }
 .view-users-list-one-in table thead tr th:nth-child(5) {
+    width: 20%;
+}
+.view-users-list-one-in table thead tr th:nth-child(6) {
     width: 15%;
 }

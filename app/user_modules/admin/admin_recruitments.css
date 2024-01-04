@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.recruitment-form {
+    width: 95%;
+    margin: auto;
+    padding: 1rem 0rem;
+}
+.recruitment-form-header {
+    background-color: black;
+    width: 50%;
+    margin: auto;
+}
+.recruitment-form-header-in {
+    width: 90%;
+    margin: auto;
+    padding: 2rem 0rem;
+}
+.recruitment-form-header-in h1 {
+    color: white;
+}
+.recruitment-form-header-in p {
+    color: white;
+}
+.recruitment-form-one {
+    width: 50%;
+    margin: auto;
+    border: 2px solid black;
+    padding: 1rem;
+    border-bottom: 1rem solid black;
+}
+.recruitment-form-one-one-cmn {
+    padding: 0.5rem 0rem;
+    display: flex;
+    flex-direction: column;
+}
+.recruitment-form-one-one-cmn label {
+    font-size: 1.2rem;
+}
+.recruitment-form-one-one-cmn input {
+    padding: 0.2rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1.2rem;
+}
+.recruitment-form-one-one-cmn textarea {
+    padding: 0.2rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1.2rem;
+}
+.recruitment-form-one-one-cmn select {
+    padding: 0.2rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1.2rem;
+}
+.recruitment-form-one-one-cmn input[type="submit"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

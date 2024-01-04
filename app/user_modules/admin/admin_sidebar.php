@@ -25,53 +25,7 @@
                         <a href="template_view_clubs.php">Clubs</a>
                     </div>
                 </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Clubs Diary</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">SAC Activities</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Projects</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Documents</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">SAC Log</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Grievancies</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">SAC Office</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Feedback</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">My Appointments</a>
-                    </div>
-                </div>
-
-
+                
             </div>
         </div>
     </div>

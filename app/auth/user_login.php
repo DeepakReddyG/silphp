@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $user['role'];
+            $_SESSION['club_id'] = $user['club_id'];
             
             $message = "Login successful!";
             $statusClass = "success"; 

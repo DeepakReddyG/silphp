@@ -12,57 +12,24 @@
             <div class="sidebar-template-boxes">
                 <div class="sidebar-template-box">
                     <div class="sidebar-template-box-in">
-                        <a href="./admin_index.php">Home</a>
+                        <a href="./club_head_index.php">Home</a>
                     </div>
                 </div>
                 <div class="sidebar-template-box">
                     <div class="sidebar-template-box-in">
-                        <a href="template_view_users_list.php">Club Members</a>
+                        <a href="./club_head_users_list_template.php">User Management</a>
                     </div>
                 </div>
                 <div class="sidebar-template-box">
                     <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Club Diary</a>
+                        <a href="./template_recruitments.php">Recruitment Form</a>
                     </div>
                 </div>
                 <div class="sidebar-template-box">
                     <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Club Activities</a>
+                        <a href="./template_recruitments.php">Recruitment Data</a>
                     </div>
                 </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Projects</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Documents</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Club Log</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Grievancies</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">SAC Office</a>
-                    </div>
-                </div>
-                <div class="sidebar-template-box">
-                    <div class="sidebar-template-box-in">
-                        <a href="template_view_clubs.php">Feedback</a>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
     </div>

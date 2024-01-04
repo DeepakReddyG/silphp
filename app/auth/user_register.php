@@ -8,17 +8,37 @@ include_once __DIR__ . '/../dbconn.php';
 
 $message = "";
 $displayForm = true;
-$statusClass = ""; 
+$statusClass = "";
+$role = "";
+
+// Fetch the list of clubs
+$clubsQuery = "SELECT id, name FROM clubs";
+$clubsResult = $conn->query($clubsQuery);
+$clubs = [];
+
+if ($clubsResult->num_rows > 0) {
+    while ($row = $clubsResult->fetch_assoc()) {
+        $clubs[] = $row;
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = sanitizeInput($_POST["username"]);
     $password = password_hash(sanitizeInput($_POST["password"]), PASSWORD_DEFAULT);
     $role = sanitizeInput($_POST["role"]);
 
-    $insertQuery = "INSERT INTO users (username, password, role, created_at) VALUES (?, ?, ?, NOW())";
+    // Add club_id to the query only if the role is not "admin" or "staff"
+    $insertQuery = "INSERT INTO users (username, password, role, created_at, club_id) VALUES (?, ?, ?, NOW(), ?)";
+
+    // If the role is "admin" or "staff", set club_id to NULL
+    $club_id = null;
+
+    if ($role != 'admin' && $role != 'staff') {
+        $club_id = sanitizeInput($_POST["club_id"]);
+    }
 
     $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("sss", $username, $password, $role);
+    $stmt->bind_param("sssi", $username, $password, $role, $club_id);
 
     try {
         if ($stmt->execute()) {
@@ -43,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +70,18 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
     <link rel="stylesheet" href="user_register.css">
+    <script>
+        function toggleClubInput() {
+            var roleSelect = document.getElementById("role");
+            var clubInput = document.getElementById("club_id_input");
+
+            if (roleSelect.value !== 'admin' && roleSelect.value !== 'staff') {
+                clubInput.style.display = "block";
+            } else {
+                clubInput.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="user_registration_page">
@@ -83,15 +114,24 @@ $conn->close();
                         
                        <div class="user_registration_page_form_in_section_three user_registration_page_form_in_section">
                             <label for="role">Role:</label>
-                            <select name="role" required>
+                            <select name="role" id="role" required onchange="toggleClubInput()">
                                 <option value="admin">Admin</option>
                                 <option value="staff">Staff</option>
                                 <option value="club_head">Club Head</option>
                                 <option value="club_member">Club Member</option>
+                                <option value="recruiter">Recruiter</option>
                             </select>
                        </div>
-                       
-            
+
+                       <div class="user_registration_page_form_in_section_four user_registration_page_form_in_section" id="club_id_input" style="display: none;">
+                            <label for="club_id">Club:</label>
+                            <select name="club_id">
+                                <?php foreach ($clubs as $club) : ?>
+                                    <option value="<?php echo $club['id']; ?>"><?php echo $club['name']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
                         <div class="user_registration_page_form_in_section_four user_registration_page_form_in_section">
                             <button type="submit">Register</button>
                             <a href="./user_login.php">Already registered?</a>

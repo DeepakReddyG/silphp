@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 
 if (!isset($_SESSION['username'])) {
@@ -9,29 +6,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-include_once __DIR__ . '/../../dbconn.php';
 
-// Fetch club name based on club_id
-$clubName = '';
-
-if (isset($_SESSION['club_id'])) {
-    $selectClubQuery = "SELECT name FROM clubs WHERE id = ?";
-    
-    $stmtClub = $conn->prepare($selectClubQuery);
-    $stmtClub->bind_param("i", $_SESSION['club_id']);
-    $stmtClub->execute();
-
-    $resultClub = $stmtClub->get_result();
-
-    if ($resultClub->num_rows > 0) {
-        $club = $resultClub->fetch_assoc();
-        $clubName = $club['name'];
-    }
-
-    $stmtClub->close();
-}
-
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +27,7 @@ $conn->close();
                         <h1>Student Activity Center Student Central</h1>
                     </div>
                     <div class="template-one-in-two">
+                        
                     </div>
                     <div class="templae-one-in-three">
                         <p><?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'user not found'; ?></p>
@@ -67,7 +43,7 @@ $conn->close();
                             <?php include_once 'club_head_sidebar.php'; ?>
                     </div>
                     <div class="template-two-in-two">
-                            <?php echo $clubName ? "<p class='template-two-in-two-p'>Club Head  $clubName</p>" : ''; ?>
+                        <?php include_once '../admin/admin_recruitments.php'; ?>
                     </div>
                 </div>
             </div>

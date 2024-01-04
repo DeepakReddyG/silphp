@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -8,10 +9,11 @@ include_once __DIR__ . '/../../dbconn.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $username_to_delete = $_POST['username_to_delete'];
 
+    // Check if the logged-in user is trying to deactivate themselves
     if ($_SESSION['username'] === $username_to_delete) {
         echo "<script>alert('Error: You cannot deactivate yourself.');</script>";
         echo "<script>document.location.href='template_view_users_list.php';</script>";
-        exit();
+        exit(); // Stop further execution
     }
 
     $updateQuery = "UPDATE users SET status='inactive' WHERE username='$username_to_delete'";
@@ -27,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'], $_POST['fi
     $field = $_POST['field'];
     $value = $_POST['value'];
 
+    // Update the user's data in the database
     $updateQuery = "UPDATE users SET $field='$value' WHERE id='$user_id'";
     $updateResult = $conn->query($updateQuery);
 
@@ -34,20 +37,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'], $_POST['fi
         die("Error: " . $updateQuery . "<br>" . $conn->error);
     }
 
+    // Output success message or handle as needed
     echo "Update successful";
     exit();
 }
 
+// Assuming $_SESSION['club_id'] contains the club_id of the club_head
+$clubId = $_SESSION['club_id'];
+
 $selectQuery = "SELECT users.id, users.username, users.role, users.created_at, COALESCE(clubs.name, 'NA') AS club_name 
                 FROM users 
                 LEFT JOIN clubs ON users.club_id = clubs.id 
-                WHERE users.status='active'";
-$result = $conn->query($selectQuery);
+                WHERE users.status='active' AND users.club_id = ?";
+$stmt = $conn->prepare($selectQuery);
+$stmt->bind_param("i", $clubId);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if (!$result) {
     die("Error: " . $selectQuery . "<br>" . $conn->error);
 }
 
+$stmt->close();
 $conn->close();
 ?>
 
@@ -57,7 +68,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <link rel="stylesheet" href="view_users_list.css">
+    <link rel="stylesheet" href="../admin/view_users_list.css">
     <style>
         .edit-mode input {
             border: 1px solid #000;
@@ -107,7 +118,7 @@ $conn->close();
                                     <input type='button' value='Save' onclick='saveEdit(" . $row['id'] . ")' style='display:none;'>
                                 </td>";
                             echo "</tr>";
-                            $counter++; 
+                            $counter++; // Increment the counter
                         }
                         ?>
                     </tbody>
@@ -126,6 +137,7 @@ $conn->close();
                 cell.innerHTML = `<input type="text" name="${field}" value="${currentValue}">`;
             });
 
+            // Show the Save button and hide the Edit button
             document.querySelector(`input[value='Edit'][onclick='toggleEdit(${userId})']`).style.display = 'none';
             document.querySelector(`input[value='Save'][onclick='saveEdit(${userId})']`).style.display = 'inline-block';
         }
