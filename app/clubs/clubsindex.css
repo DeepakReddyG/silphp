@@ -59,6 +59,55 @@
     font-weight: 500;
     padding: 0rem 1rem;
 }
+
+/* ------------------- home page ------------------- */
+
+.ClubHome {
+    width: 100%;
+}
+
+.ClubHome-in {
+    width: 100%;
+    height: 85vh;
+}
+
+.club-one {
+    width: 100%;
+    padding: 2rem 0rem;
+}
+
+.club-one-in {
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.club-two {
+    width: 100%;
+    padding: 2rem 0rem;
+}
+
+.club-two-in {
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+/* ------------------- Home End ------------------- */
+
 .footer-one {
     width: 100%;
 }

@@ -26,6 +26,54 @@
                     </div>
                 </div>
             </div>
+            <div class="ClubHome">
+                <div class="ClubHome-in">
+                    <div class="club-one">
+                        <div class="club-one-in">
+                            <div class="club-domain-one" onclick="handleClick('one')">
+                                <p>TEC</p>
+                            </div>
+                            <div class="club-domain-two" onclick="handleClick('two')">
+                                <p>Cultural</p>
+                            </div>  
+                            <div class="club-domain-three" onclick="handleClick('three')">
+                                <p>Random</p>
+                            </div>
+                            <div class="club-domain-four" onclick="handleClick('four')">
+                                <p>Random</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="club-two">
+                        <!-- default hidden div  -->
+                        <div class="club-two-in">
+                            <div class="club-two-initial">
+                                <p>Click on the domain to view the clubs</p>
+                            </div>
+                            <div class="club-two-cn-one hidden">
+                                <p>One</p>
+                                 
+                            </div>
+                            <div class="club-two-cn-two hidden">
+                                 
+                                <p>two</p>
+                                 
+                            </div>
+                            <div class="club-two-cn-three hidden">
+                         
+                                <p>three</p>
+                                 
+                            </div>
+                            <div class="club-two-cn-four hidden">
+                                 
+                                <p>four</p>
+                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
             <div class="footer">
                 <div class="footer-in">
                     <div class="footer-one">
@@ -44,4 +92,21 @@
         </div>
     </div>
 </body>
+<script>
+    let Number = 0;
+
+    const handleClick = (Num) => {
+        Number = Num;
+        console.log(Number);
+
+        let allClubs = document.querySelectorAll('.club-two-in div');
+        allClubs.forEach(club => {
+            club.classList.add('hidden');
+        });
+
+        let showElement = document.querySelector(`.club-two-cn-${Number}`);
+        showElement.classList.remove('hidden');
+    }
+
+</script>
 </html>
