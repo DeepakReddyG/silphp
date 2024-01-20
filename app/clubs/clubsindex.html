@@ -30,16 +30,16 @@
                 <div class="ClubHome-in">
                     <div class="club-one">
                         <div class="club-one-in">
-                            <div class="club-domain-one" onclick="handleClick('one')">
+                            <div class="club-domain-one domain" onclick="handleClick('one')">
                                 <p>TEC</p>
                             </div>
-                            <div class="club-domain-two" onclick="handleClick('two')">
+                            <div class="club-domain-two domain" onclick="handleClick('two')">
                                 <p>Cultural</p>
                             </div>  
-                            <div class="club-domain-three" onclick="handleClick('three')">
+                            <div class="club-domain-three domain" onclick="handleClick('three')">
                                 <p>Random</p>
                             </div>
-                            <div class="club-domain-four" onclick="handleClick('four')">
+                            <div class="club-domain-four domain" onclick="handleClick('four')">
                                 <p>Random</p>
                             </div>
                         </div>
@@ -51,23 +51,70 @@
                                 <p>Click on the domain to view the clubs</p>
                             </div>
                             <div class="club-two-cn-one hidden">
-                                <p>One</p>
-                                 
+                                <div class="club-tec">
+                                    <div class="club-tec-in">
+                                        <div class="club-tec-one">
+                                            <div class="tec-domain-one tec-dm">
+                                                <p>ZeroOne</p>
+                                            </div>
+                                            <div class="tec-domain-two tec-dm">
+                                                <p>ZeroOne</p>
+                                            </div>
+                                            <div class="tec-domain-three tec-dm">
+                                                <p>ZeroOne</p>
+                                            </div>
+                                            <div class="tec-domain-two tec-dm">
+                                                <p>ZeroOne</p>
+                                            </div>
+                                            <div class="tec-domain-two tec-dm">
+                                                <p>ZeroOne</p>
+                                            </div>
+                                            <div class="tec-domain-two tec-dm">
+                                                <p>ZeroOne</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="club-tec-two">
+                                             
+                                        </div>  
+                                    </div>
+                                </div> 
                             </div>
                             <div class="club-two-cn-two hidden">
-                                 
-                                <p>two</p>
-                                 
+                                <div class="club-tec">
+                                    <div class="club-tec-in">
+                                        <div class="club-tec-one">
+
+                                        </div>
+                                        <div class="club-tec-two">
+                                        
+                                        </div>  
+                                    </div>
+                                </div> 
                             </div>
                             <div class="club-two-cn-three hidden">
-                         
-                                <p>three</p>
-                                 
+                                <div class="club-tec">
+                                    <div class="club-tec-in">
+                                        <div class="club-tec-one">
+
+                                        </div>
+                                        <div class="club-tec-two">
+                                        
+                                        </div>  
+                                    </div>
+                                </div> 
                             </div>
                             <div class="club-two-cn-four hidden">
-                                 
-                                <p>four</p>
-                                 
+                                <div class="club-tec">
+                                    <div class="club-tec-in">
+                                        <div class="club-tec-one">
+
+                                        </div>
+                                        <div class="club-tec-two">
+                                        
+                                        </div>  
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -104,8 +151,21 @@
             club.classList.add('hidden');
         });
 
-        let showElement = document.querySelector(`.club-two-cn-${Number}`);
-        showElement.classList.remove('hidden');
+        let showClub = document.querySelector(`.club-two-cn-${Number}`);
+        showClub.classList.remove('hidden');
+
+        let allHover = document.querySelectorAll('.club-one-in div');
+        allHover.forEach(hover => {
+            hover.classList.remove('hover');
+        });
+
+        let showHover = document.querySelector(`.club-domain-${Number}`);
+        showHover.classList.add('hover');
+
+        let childDivs = showClub.querySelectorAll('div');
+        childDivs.forEach(childDiv => {
+        childDiv.classList.remove('hidden');
+    });
     }
 
 </script>

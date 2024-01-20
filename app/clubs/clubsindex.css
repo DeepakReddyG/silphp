@@ -72,17 +72,19 @@
 }
 
 .club-one {
-    width: 100%;
-    padding: 2rem 0rem;
+    width: 90%;
+    margin: auto;
+    padding: 2rem 0rem 0rem 0rem;
 }
 
 .club-one-in {
-    width: 90%;
-    margin: auto;
-    border: 2px solid black;
+    width: 40%;
+    border-radius: 1rem;
+    border: 1px solid black;
+    padding: .5rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .club-two {
@@ -93,17 +95,74 @@
 .club-two-in {
     width: 90%;
     margin: auto;
-    border: 2px solid black;
+    border-radius: 1rem;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.domain {
+    padding: .1rem 1rem;
 }
 
 .hidden {
     display: none;
 }
 
+.hover {
+    background-color: black;
+    color: white;
+    padding: .1rem 1rem;
+    border-radius: .5rem;
+}
 
+.club-two-cn-one {
+    width: 100%;
+}
+.club-two-cn-two {
+    width: 100%;
+}
+.club-two-cn-three {
+    width: 100%;
+}
+.club-two-cn-four {
+    width: 100%;
+}
+
+.club-tec {
+    width: 100%;
+}
+
+.club-tec-in {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    border-radius: .5rem;
+}
+
+.club-tec-one {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    background-color: rgb(151, 0, 3);
+}
+
+.tec-dm {
+    width: 90%;
+    background-color: white;
+    padding: 1rem 1rem;
+    margin: .4rem 0rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.club-tec-two {
+    width: 80%;
+}
 
 
 /* ------------------- Home End ------------------- */
