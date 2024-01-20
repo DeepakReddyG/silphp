@@ -1,0 +1,18 @@
+
+Types of users:
+1. Admin
+2. Student
+
+Student functionality:
+1. Register for clubs
+2. Information about clubs
+
+Admin functionality:
+1. View list of students registered for clubs
+2. View statistics
+	-- registrations based on domains (TEC, LCH, ESO, IIE, HWB)
+	-- registrations based on clubs
+	-- registrations based on branches
+	-- registrations based on gender
+	
+3. My his/her registered club with the help of search. 
