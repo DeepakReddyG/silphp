@@ -4,43 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Grievance</title>
+    <link rel="stylesheet" href="./index.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
 
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            background-color: rgb(151, 0, 3);
-            color: #fff;
-            margin: 0;
-            padding: 0rem 2rem;
-        }
-        .nav-one {
-            width: 50%;
-            display: flex;
-            align-items: center;
-        }
-        .nav-one h2 {
-            color: white;
-            font-size: 1.5rem;
-        }
-        .nav-two {
-            width: 50%;
-            text-align: right;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        .nav-two a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0rem 0.5rem;
-        }
+        
 
         .formdiv {
             width: fit-content;
@@ -94,16 +66,18 @@
     </style>
 </head>
 <body>
-    <div class="nav">
-        <div class="nav-one">
-            <h2>Student Activity Center | Activities Portal</h2>
-        </div>
-        <div class="nav-two">
-            <a href="./index.php">Home</a>
-            <a href="./leaderboard.php">Leaderboard</a>
-            <a href="./view_activities.php">View Activities</a>
-            <a href="./add_grievance.php">Grievances</a>
-            <a href="./admin.php">Admin</a>
+<div class="nav">
+        <div class="nav-in">
+            <div class="nav-one">
+                <h2>Student Activity Center | Activities Portal</h2>
+            </div>
+            <div class="nav-two">
+                <a href="./index.php">Home</a>
+                <a href="./leaderboard.php">Leaderboard</a>
+                <!-- <a href="./view_activities.php">View Activities</a> -->
+                <a href="./add_grievance.php">Grievances</a>
+                <a href="./admin.php">Admin</a>
+            </div>
         </div>
     </div>
     <h2>Add Grievance</h2>

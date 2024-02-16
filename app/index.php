@@ -4,175 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Participant</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            background-color: rgb(151, 0, 3);
-            color: #fff;
-            margin: 0;
-            padding: 0rem 2rem;
-        }
-        .nav-one {
-            width: 50%;
-            display: flex;
-            align-items: center;
-        }
-        .nav-one h2 {
-            color: white;
-            font-size: 1.5rem;
-        }
-        .nav-two {
-            width: 50%;
-            text-align: right;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-        .nav-two a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0rem 0.5rem;
-        }
-
-        .formdiv {
-            width: fit-content;
-            border: 1px solid black;
-            margin: 2rem auto;
-        }
-
-
-        form {
-            display: flex;
-        }
-
-        label {
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        input[type="text"] {
-            padding: 8px;
-            font-size: 1.2rem;
-            outline: none;
-            outline: none;
-            border: none;
-            font-size: 1.2rem;
-        }
-
-        input[type="submit"] {
-            padding: 8px;
-            background-color: black;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .participants_div {
-            width: 90%;
-            margin: auto;
-        }
-
-        .participants_div h3 {
-            font-size: 1.5rem;
-        }
-
-        table {
-            border-collapse: collapse;
-            border: 2px solid black;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 6px 3px;
-            background-color: #fff;
-        }
-        table th {
-            border: 1px solid grey;
-        }
-        .participants_div table tr:hover {
-            background-color: lightgrey;
-        }
-
-        th {
-            background-color: black;
-            color: white;
-        }
-
-        .category_table {
-            
-        }
-        .highlight_in_table {
-            background-color: lightgrey;
-            font-size: 1.5rem;
-        }
-        .category_table tr td:nth-child(1) {
-            width: 20%;
-        }
-        .category_table tr td:nth-child(2) {
-            width: 30%;
-        }
-        .category_table tr td:nth-child(3) {
-            width: 30%;
-        }
-        .category_table tr td:nth-child(4) {
-            width: 20%;
-        }
-        .developedby {
-            position: absolute;
-            bottom: 0;
-        }
-
-        .events-attended tr th:nth-child(1) {
-            width: 3%;
-        }
-        .events-attended tr th:nth-child(2) {
-            width: 25%;
-        }
-        .events-attended tr th:nth-child(3) {
-            width: 17%;
-        }
-        .events-attended tr th:nth-child(4) {
-            width: 10%;
-        }
-        .events-attended tr th:nth-child(5) {
-            width: 10%;
-        }
-        .events-attended tr th:nth-child(6) {
-            width: 10%;
-        }
-        .events-attended tr th:nth-child(7) {
-            width: 15%;
-        }
-        .events-attended tr th:nth-child(8) {
-            width: 10%;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
     <div class="nav">
-        <div class="nav-one">
-            <h2>Student Activity Center | Activities Portal</h2>
-        </div>
-        <div class="nav-two">
-            <a href="./index.php">Home</a>
-            <a href="./leaderboard.php">Leaderboard</a>
-            <a href="./view_activities.php">View Activities</a>
-            <a href="./add_grievance.php">Grievances</a>
-            <a href="./admin.php">Admin</a>
+        <div class="nav-in">
+            <div class="nav-one">
+                <h2>Student Activity Center | Activities Portal</h2>
+            </div>
+            <div class="nav-two">
+                <a href="./index.php">Home</a>
+                <a href="./leaderboard.php">Leaderboard</a>
+                <!-- <a href="./view_activities.php">View Activities</a> -->
+                <a href="./add_grievance.php">Grievances</a>
+                <a href="./admin.php">Admin</a>
+            </div>
         </div>
     </div>
 
@@ -182,7 +28,7 @@
             <br>
             <input type="submit" value="Search Participation">
         </form>
-        <p class="developedby">Developed by Deepak Reddy Gathpa 2100031817 of ZeroOne Code Club</p>
+        <p class="developedby">Designed and Developed by ZeroOne Code Club. All rights reserved</p>
     </div>
 
     <?php

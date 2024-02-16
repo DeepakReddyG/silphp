@@ -17,19 +17,20 @@ create table activities (
     primary key (id)
 );
 
-create table participants (
-    id int not null auto_increment,
-    username BIGINT not null,
-    name varchar(255) not null,
-    event_name varchar(255) not null,
-    club_name varchar(255) not null,
-    category varchar(255) not null,
-    date_of_participation date not null,
-    venue varchar(255) not null,
-    time_slot varchar(255) not null,
-    points int not null,
-    primary key (id)
+CREATE TABLE participants (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    event_name VARCHAR(255) NOT NULL,
+    club_name VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    date_of_participation DATE NOT NULL,
+    venue VARCHAR(255) NOT NULL,
+    time_slot VARCHAR(255) NOT NULL,
+    points INT NOT NULL,
+    PRIMARY KEY (id)
 );
+
 
 create table grievances (
     id int not null auto_increment,
