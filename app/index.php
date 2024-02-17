@@ -77,12 +77,13 @@
 
             // Calculate and display the total points from all categories
             $totalPoints = array_sum($categoryPoints);
-            echo "<tr>
-                    <td>Total</td>
-                    <td>".array_sum($categoryEvents)."</td>
-                    <td class='highlight_in_table'>$totalPoints / 1000</td>
-                    <td class='highlight_in_table'>".($totalPoints/5)."%</td>
-                  </tr>";
+$totalPercentage = ($totalPoints / 1000) * 100; // Calculate the percentage out of 100
+echo "<tr>
+        <td>Total</td>
+        <td>".array_sum($categoryEvents)."</td>
+        <td class='highlight_in_table'>$totalPoints / 1000</td>
+        <td class='highlight_in_table'>$totalPercentage%</td>
+      </tr>";
 
             echo "</table>";
 
@@ -122,7 +123,8 @@
             echo "</table>";
             echo "</div>";
         } else {
-            echo "No events found for the username: $username";
+            echo "<p class='no_participation'>No participation records found for $username.<br><span>In case of any discrepancies, please fill the grievances form</span></p>";
+
         }
 
         // Close the statement
@@ -134,3 +136,11 @@
     ?>
 </body>
  </html>
+
+
+
+
+
+
+
+ 

@@ -86,6 +86,7 @@ input[type="submit"] {
 .participants_div {
     width: 90%;
     margin: auto;
+    margin-top: 20px;
 }
 
 .participants_div h3 {
@@ -94,21 +95,38 @@ input[type="submit"] {
     font-weight: 500;
 }
 
+.no_participation {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
+.no_participation span {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
 table {
+    margin-top: 20px;
     border-collapse: collapse;
     border: 2px solid black;
     width: 100%;
 }
+.participants_div table th {
+    border: 1px solid grey;
+    background-color: black;
+}
 
-th, td {
+table th, td {
     border: 1px solid black;
     text-align: left;
     padding: 6px 3px;
     background-color: #fff;
 }
-table th {
-    border: 1px solid grey;
-}
+
 .participants_div table tr:hover {
     background-color: lightgrey;
 }

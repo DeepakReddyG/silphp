@@ -6,44 +6,33 @@
     <title>Leaderboard</title>
     <link rel="stylesheet" href="./index.css">
     <style>
-          body {
-            font-family: Arial, sans-serif;
+        body {
+            /* border: 0.1px solid transparent; */
+            height: 100vh;
             margin: 0;
             padding: 0;
+            display: flex;
         }
-
-
-       
-
-        .participants_div {
-            width: 90%;
-            margin: auto;
-        }
-
-        table {
-            border-collapse: collapse;
-            margin-top: 20px;
-            border: 2px solid black;
+        .nav {
+            position: fixed;
             width: 100%;
         }
-
-        th, td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 8px;
+        .participants_div {
+            margin-top: 5rem;
         }
-        .participants_div table tr:hover {
-            background-color: lightgrey;
+        .participants_div table {
+            width: 100%;
+            border-collapse: collapse;
         }
-
-        th {
+        .participants_div table th {
             background-color: black;
             color: white;
         }
-        .developedby {
-            position: absolute;
-            bottom: 0;
+        .participants_div table th, .participants_div table td {
+            border: 1px solid grey;
+            padding: 5px;
         }
+        
     </style>
 </head>
 <body>
