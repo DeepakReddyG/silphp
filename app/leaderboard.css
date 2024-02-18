@@ -53,6 +53,9 @@ body {
     height: 88vh;
     overflow-y: scroll;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main-content .leaderboard_div {
@@ -61,7 +64,10 @@ body {
 }
 
 .leaderboard_div {
-    padding: 1rem 0rem;
+    /* padding: 1rem 0rem; */
+    height: 80vh;
+    overflow-y: scroll;
+
 }
 
 .leaderboard_div table {
