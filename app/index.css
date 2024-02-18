@@ -48,11 +48,28 @@ body {
     margin: 0rem 0.5rem;
 }
 
+
+.main-content {
+    height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .formdiv {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formdiv form {
     width: fit-content;
     border: 1px solid black;
-    margin: 2rem auto;
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -65,7 +82,7 @@ body {
     margin-right: 10px;
 }
 
-input[type="text"] {
+.formdiv form input[type="text"] {
     padding: 8px;
     font-size: 1.2rem;
     outline: none;
@@ -74,7 +91,7 @@ input[type="text"] {
     font-size: 1.2rem;
 }
 
-input[type="submit"] {
+.formdiv form input[type="submit"] {
     padding: 8px;
     background-color: black;
     color: #fff;
@@ -83,13 +100,18 @@ input[type="submit"] {
     font-size: 1.2rem;
 }
 
-.participants_div {
+.points-table {
+    height: 78vh;
+    width: 100%;
+}
+
+.points_table_div {
     width: 90%;
     margin: auto;
     margin-top: 20px;
 }
 
-.participants_div h3 {
+.points_table_div h3 {
     font-size: 1.5rem;
     margin: 0.5rem 0rem;
     font-weight: 500;
@@ -109,78 +131,80 @@ input[type="submit"] {
     font-weight: 400;
 }
 
-table {
-    margin-top: 20px;
-    border-collapse: collapse;
+
+
+.category_table, .events-attended {
     border: 2px solid black;
     width: 100%;
+    border-collapse: collapse;
 }
-.participants_div table th {
+.category_table tr th , .events-attended tr th {
     border: 1px solid grey;
-    background-color: black;
-}
-
-table th, td {
-    border: 1px solid black;
-    text-align: left;
-    padding: 6px 3px;
-    background-color: #fff;
-}
-
-.participants_div table tr:hover {
-    background-color: lightgrey;
-}
-
-th {
+    padding: 0.2rem;
     background-color: black;
     color: white;
 }
 
-.category_table {
-    
+.category_table tr th, td, .events-attended tr th, td {
+    border: 1px solid grey;
 }
-.highlight_in_table {
-    background-color: lightgrey;
-    font-size: 1.5rem;
+
+.category_table tr td, .events-attended tr td{
+    padding: 0.2rem;
+    text-align: center;
 }
-.category_table tr td:nth-child(1) {
+
+.category_table tr td:first-child {
     width: 20%;
 }
+
 .category_table tr td:nth-child(2) {
     width: 30%;
 }
+
 .category_table tr td:nth-child(3) {
-    width: 30%;
-}
-.category_table tr td:nth-child(4) {
     width: 20%;
 }
-.developedby {
-    position: absolute;
-    bottom: 10px;
+
+.category_table tr td:nth-child(4) {
+    width: 30%;
 }
 
-.events-attended tr th:nth-child(1) {
-    width: 3%;
+
+
+.events-attended tr td:first-child {
+    width: 5%;
 }
-.events-attended tr th:nth-child(2) {
+.events-attended tr td:nth-child(2) {
+    width: 30%;
+}
+.events-attended tr td:nth-child(3) {
     width: 25%;
 }
-.events-attended tr th:nth-child(3) {
-    width: 17%;
-}
-.events-attended tr th:nth-child(4) {
+.events-attended tr td:nth-child(4) {
     width: 10%;
 }
-.events-attended tr th:nth-child(5) {
+.events-attended tr td:nth-child(5) {
     width: 10%;
 }
-.events-attended tr th:nth-child(6) {
+.events-attended tr td:nth-child(6) {
     width: 10%;
 }
-.events-attended tr th:nth-child(7) {
-    width: 15%;
-}
-.events-attended tr th:nth-child(8) {
+.events-attended tr td:nth-child(7) {
     width: 10%;
+}
+
+
+
+
+
+
+
+footer {
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
 }
