@@ -1,11 +1,8 @@
 <?php
 
-$host = 'localhost'; 
-$username = 'root';
-$password = '';
-$database = 'phpsil';
+include_once __DIR__ . '/../config.php';
 
-$conn = new mysqli($host, $username, $password, $database);
+$conn = new mysqli($db_config['host'], $db_config['username'], $db_config['password'], $db_config['database']);
 
 if ($conn->connect_error) {
     $db_status = [
@@ -21,4 +18,3 @@ if ($conn->connect_error) {
 }
 
 return $db_status;
-?>
