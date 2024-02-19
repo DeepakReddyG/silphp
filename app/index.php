@@ -22,7 +22,7 @@
                 <a href="./index.php">Home</a>
                 <a href="./leaderboard.php">Leaderboard</a>
                 <a href="./add_grievance.php">Grievances</a>
-                <a href="./social_internship.php">Social Internship</a>
+                <a href="./social_internship_attendance.php">Social Internship</a>
             </div>
         </div>
     </div>
