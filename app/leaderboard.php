@@ -17,7 +17,7 @@
                 <a href="./index.php">Home</a>
                 <a href="./leaderboard.php">Leaderboard</a>
                 <a href="./add_grievance.php">Grievances</a>
-                <a href="./admin.php">Admin</a>
+                <a href="./social_internship.php">Social Internship</a>
             </div>
         </div>
     </div>

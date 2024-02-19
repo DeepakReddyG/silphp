@@ -1,0 +1,64 @@
+
+
+.addGriev-in {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.addGrievHeading {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0rem;
+}
+.addGrievForm {
+    height: 100%;
+}
+.addGriev-in .addGrievForm form {
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.addGriev-in .addGrievForm form label{
+    font-size: 1rem;
+    margin: 0.2rem 0rem;
+}
+
+.addGriev-in .addGrievForm form input{
+    padding: 0.5rem;
+    margin: 0.5rem 0rem;
+    outline: none;
+    border: 1px solid black;
+    font-size: 1rem;
+}
+
+.addGriev-in .addGrievForm form select{
+    padding: 0.5rem;
+    margin: 0.5rem 0rem;
+    outline: none;
+    border: 1px solid black;
+    font-size: 1rem;
+}
+.addGriev-in .addGrievForm form textarea{
+    padding: 0.5rem;
+    margin: 0.5rem 0rem;
+    outline: none;
+    border: 1px solid black;
+    font-size: 1rem;
+}
+.addGriev-in .addGrievForm form input[type="submit"]{
+    padding: 0.5rem;
+    margin: 0.5rem 0rem;
+    outline: none;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}

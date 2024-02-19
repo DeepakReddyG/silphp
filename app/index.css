@@ -12,6 +12,10 @@ body {
     background-color: white;
 }
 
+.message-mobile {
+    display: none;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -207,4 +211,39 @@ footer {
     justify-content: center;
     background-color: black;
     color: white;
+}
+
+
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .nav {
+        display: none;
+    }
+    .main-content {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
+
+    .message-mobile {
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 1rem 0rem;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .message-mobile p {
+        font-size: 1rem;
+        width: 70%;
+        margin: auto;
+    }
 }

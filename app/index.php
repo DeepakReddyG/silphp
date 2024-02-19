@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
+    <!-- message-mobile -->
+    <div class="message-mobile">
+        <p>Sorry, this website is not available for mobile devices. Please use a desktop or laptop to access the website.</p>
+    </div>
     <div class="nav">
         <div class="nav-in">
             <div class="nav-one">
@@ -18,7 +22,7 @@
                 <a href="./index.php">Home</a>
                 <a href="./leaderboard.php">Leaderboard</a>
                 <a href="./add_grievance.php">Grievances</a>
-                <a href="./admin.php">Admin</a>
+                <a href="./social_internship.php">Social Internship</a>
             </div>
         </div>
     </div>
