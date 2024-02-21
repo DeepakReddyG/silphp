@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-form {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: radial-gradient(#970003 0.5px, #e5e5f7 0.5px);
+    background-size: 10px 10px;
+
+}
+.login-form-in {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+}
+
+.login-form-footer {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-in-one {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-in-one form {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.login-form-in-one form input {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 10px 0;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1.2rem;
+
+}
+
+.login-form-in-one form button {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgb(151, 0, 3);
+}
+
+.login-form-in-one form button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+.login-form-in-one form a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+.login-form-in-two {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-in-two-in {
+    width: 90%;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-in-two-in img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
