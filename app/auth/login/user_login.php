@@ -16,11 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<?php if (isset($loginError)) : ?>
-    <div class="error">
-        <?php echo $loginError; ?>
-    </div>
-<?php endif; ?>
+
 
 
 
@@ -29,15 +25,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="login-form-in">
 
         <div class="login-form-in-one">
+            <div class="login-form-alert">
+                <?php if (isset($loginError)) : ?>
+                    <div class="error">
+                        <?php echo $loginError; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
             <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <label for="username">Username:</label>
-                <input type="text" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" name="password" required>
-                <button type="submit" name="login">Login</button>
 
-                <a href="../register/user_register.php">Not a registered user?</a>
-                <a href="../forgot_password/user_forgot_password.php">Forgot password?</a>
+                    <div class="login-form-in-one-form-in">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" placeholder="Registered ID Number" required pattern=".{10}" title="Username must be exactly 10 characters long">
+
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" required>
+                        <button type="submit" name="login">Login</button>
+
+                        <a href="../register/user_register.php">Not a registered user?</a>
+                        <a href="../forgot_password/user_forgot_password.php">Forgot password?</a>
+                    </div>
 
             </form>
         </div>
@@ -49,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <div class="login-form-footer">
+        <div class="login-form-footer">
             <p>© 2024, Student Activity Center, K L Deemed to be University. All rights reserved.</p>
         </div>
 

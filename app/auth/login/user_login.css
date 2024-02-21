@@ -37,16 +37,34 @@
 .login-form-in-one {
     width: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.login-form-in-one .login-form-alert {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 .login-form-in-one form {
     width: 40%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 60vh;
+    width: 100%;
 }
-.login-form-in-one form input {
+.login-form-in-one form .login-form-in-one-form-in { 
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+.login-form-in-one form .login-form-in-one-form-in input {
     width: 100%;
     padding: 0.6rem;
     margin: 10px 0;
@@ -56,7 +74,7 @@
 
 }
 
-.login-form-in-one form button {
+.login-form-in-one form .login-form-in-one-form-in button {
     width: 100%;
     padding: 0.6rem;
     margin: 10px 0;
@@ -69,13 +87,13 @@
     background-color: rgb(151, 0, 3);
 }
 
-.login-form-in-one form button:hover {
+.login-form-in-one form .login-form-in-one-form-in button:hover {
     background-color: #000;
     color: #fff;
 }
 
 
-.login-form-in-one form a {
+.login-form-in-one form .login-form-in-one-form-in a {
     color: #000;
     text-decoration: none;
     font-size: 1rem;
