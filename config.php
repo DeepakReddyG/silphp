@@ -4,7 +4,6 @@ $db_config = [
     'host' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'phpsil',
+    'database' => 'silphp'
 ];
-
 ?>

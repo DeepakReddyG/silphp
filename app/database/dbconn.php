@@ -1,9 +1,7 @@
 <?php
 
-include_once __DIR__ . '/../config.php';
-
+include_once __DIR__ . '/../../config.php';
 $conn = new mysqli($db_config['host'], $db_config['username'], $db_config['password'], $db_config['database']);
-
 if ($conn->connect_error) {
     $db_status = [
         'connected' => false,

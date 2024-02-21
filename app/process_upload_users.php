@@ -1,6 +1,10 @@
 <?php
 
-require_once 'dbconn.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once 'database/dbconn.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -9,30 +13,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $csv_file = $_FILES['csv_file']['tmp_name'];
 
         $csv_data = array_map('str_getcsv', file($csv_file));
-
         array_shift($csv_data);
 
-        $sql = "INSERT INTO activities (name, clubname, category, organized_on, student_organizer_id, student_organizer_name, venue, time_slot, points)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (username, name, gender, year, branch, user_type, password)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
 
         foreach ($csv_data as $row) {
-            $stmt->bind_param(
-                'ssssssssi',
-                ...$row
-            );
+            $password = password_hash($row[0], PASSWORD_DEFAULT);
+            $stmt->bind_param('sssiiss', ...$row, $password);
             $stmt->execute();
         }
 
         $stmt->close();
 
-        echo "CSV file uploaded and data inserted successfully!";
+        echo "CSV file uploaded and user data inserted successfully!";
     } else {
         echo "Error uploading CSV file.";
     }
 } else {
-    header("Location: upload_activities.php");
+
+    header("Location: upload_users.php");
     exit();
 }
 
