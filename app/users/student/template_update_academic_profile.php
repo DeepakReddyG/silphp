@@ -36,7 +36,7 @@ if ($_SESSION['user_type'] !== 'Student') {
                         </ul>
                     </div>
                     <div class="container-in-two-in-two">
-
+                        <?php include './update_academic_profile/update_academic_profile.php'; ?>
                     </div>
                 </div>
             </div>

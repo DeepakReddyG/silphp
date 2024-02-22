@@ -75,3 +75,36 @@ END //
 
 -- Reset the delimiter to semicolon
 DELIMITER ;
+
+
+
+-- create table social internship
+create table social_internship_registration (
+    id int not null auto_increment,
+    user_id int not null,
+    internship_domain varchar(255) not null,
+    internship_registration_approval_status enum('Approved', 'Pending', 'Rejected') not null default 'Pending',
+    created_at timestamp not null default current_timestamp,
+    primary key (id),
+    foreign key (user_id) references users(id)
+);
+
+create table social_internship_attendance (
+    id int not null auto_increment,
+    user_id int not null,
+    day_one_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_two_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_three_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_four_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_five_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_six_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_seven_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_eight_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_nine_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    day_ten_attendance_status enum('Present', 'Absent', 'Pending') not null default 'Pending',
+    primary key (id),
+    foreign key (user_id) references users(id)
+);
+
+
+

@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once('process_update_profile.php');
 }
 
-$user_id = 1; // Replace with the actual user_id
+$user_id = $_SESSION['user_id'];
 $query = "SELECT * FROM user_profile WHERE user_id = $user_id";
 $result = mysqli_query($conn, $query);
 
@@ -35,10 +35,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
     <link rel="stylesheet" href="./update_profile.css">
-    <!-- Include jQuery for AJAX functionality -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <!-- Include your JavaScript for AJAX submission and alert display -->
-   <!-- Include your JavaScript for AJAX submission and alert display -->
 <script>
     function submitForm() {
         $.ajax({
