@@ -1,43 +1,44 @@
 <?php
-// Turn on error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Include your database connection file
 include_once('../../../database/dbconn.php');
 
-// Initialize $updateStatus variable
-$updateStatus = null;
-
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include the script for processing profile update
-    include_once('process_update_profile.php');
+if (!$conn) {
+    die("Error: Unable to connect to the database");
 }
 
-// Fetch existing values from the database to pre-fill the form
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $user_id = $_SESSION['user_id'];
 
-// Open the database connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Process the form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $year_of_study = $_POST['year_of_study'];
+    $department = $_POST['department'];
+    $cluster = $_POST['cluster'];
+    $sil_section = $_POST['sil_section'];
+    $CGPA = $_POST['CGPA'];
 
-$query = "SELECT * FROM user_profile WHERE user_id = $user_id";
-$result = mysqli_query($conn, $query);
+    // Update academic profile in the database
+    $query = "UPDATE user_academic_profile SET 
+              year_of_study = '$year_of_study', 
+              department = '$department', 
+              cluster = '$cluster', 
+              sil_section = '$sil_section', 
+              CGPA = '$CGPA' 
+              WHERE user_id = $user_id";
 
-if ($result && mysqli_num_rows($result) > 0) {
-    $profileData = mysqli_fetch_assoc($result);
-} else {
-    // Handle the case where user_profile data is not found
-    $profileData = array(
-        'profile_picture' => '',
-        'gender' => 'NA',
-        'residence_type' => 'NA',
-        'personal_email' => '',
-        'phone_number' => ''
-    );
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        echo "Academic profile updated successfully!";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
 }
-
-// Close the database connection
-mysqli_close($conn);
 ?>
