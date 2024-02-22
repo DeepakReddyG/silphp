@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <div class="register-form-in-one">
             <div class="register-form-in-one-in">
-                <img src="../../assets/ImageThree.jpeg" alt="">
+                <img src="../../assets/Launch.png" alt="">
             </div>
         </div>
         <div class="register-form-in-two">

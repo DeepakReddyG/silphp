@@ -21,6 +21,7 @@ if (
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_type'] = $user['user_type'];
+            
 
             $updateQuery = "UPDATE users SET session_status = 'Active' WHERE id = " . $user['id'];
             mysqli_query($conn, $updateQuery);

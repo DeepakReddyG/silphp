@@ -22,7 +22,11 @@ if (
     $checkQuery = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
     $checkResult = mysqli_query($conn, $checkQuery);
 
-    if (mysqli_num_rows($checkResult) > 0) {
+    if (!$checkResult) {
+        // Display MySQL error if the query fails
+        $registrationStatus['class'] = 'error';
+        $registrationStatus['message'] = 'MySQL Error: ' . mysqli_error($conn);
+    } elseif (mysqli_num_rows($checkResult) > 0) {
         // Username or email already exists
         $registrationStatus['class'] = 'error';
         $registrationStatus['message'] = 'Username or email already exists. Please choose a different one.';
@@ -41,7 +45,7 @@ if (
         } else {
             // Registration failed
             $registrationStatus['class'] = 'error';
-            $registrationStatus['message'] = 'Registration failed. Please try again.';
+            $registrationStatus['message'] = 'Registration failed. Please try again. MySQL Error: ' . mysqli_error($conn);
         }
     }
 } else {
@@ -49,6 +53,9 @@ if (
     $registrationStatus['class'] = 'error';
     $registrationStatus['message'] = 'Invalid form submission. Please fill in all required fields.';
 }
+
+// Display registration status
+echo json_encode($registrationStatus);
 
 // Close the database connection
 mysqli_close($conn);

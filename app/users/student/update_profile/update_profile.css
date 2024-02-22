@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.update-profile {
+    width: 100%;
+}
+.update-profile-in {
+    width: 100%;
+}
+
+.update-profile-main {
+    width: 100%;
+}
+.update-profile-main-in {
+    width: 100%;
+}
+
+.update-profile-main-in form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0rem;
+}
+
+.update-profile-main-in form input {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1rem;
+}
+
+.update-profile-main-in form input:focus {
+    border: 1px solid blue;
+    background-color: bisque;
+}
+
+.update-profile-main-in form select {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1rem;
+}
+
+.update-profile-main-in form select:focus {
+    border: 1px solid blue;
+    background-color: bisque;
+}
+
+.update-profile-main-in form label {
+    margin-top: 0.5rem;
+}
+
+.update-profile-main-in form button {
+    width: 100%;
+    padding: 0.4rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem;
+}

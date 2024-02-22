@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav {
+    background-color: rgb(151, 0, 3);
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.navigation-bar {
+    width: 100%;
+}
+.navigation-bar-in {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navigation-bar-in-one {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.navigation-bar-in-one a {
+    text-decoration: none;
+    color: white;
+}
+.navigation-bar-in-two {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+}
+.navigation-bar-in-two a {
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 0.2rem 0.6rem;
+    margin-left: 1rem;
+}
+
+.footer-bar {
+    height: 6vh;
+    background-color: rgb(151, 0, 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-bar p {
+    color: white;
+}
+
+.sidebar {
+    width: 100%;
+}
+.sidebar-in {
+    width: 100%;
+    margin: auto;
+}
+.sidebar-in-link {
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar-in-link a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: 1px solid white;
+    padding: 0.4rem;
+    color: white;
+    text-decoration: none;
+}
