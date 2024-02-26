@@ -106,7 +106,14 @@ create table social_internship_attendance (
     foreign key (user_id) references users(id)
 );
 
-
-
-
+-- write a trigger when a new user is added to the social_internship_registration table to insert default data into social_internship_attendance table
+DELIMITER //
+CREATE TRIGGER after_insert_social_internship_registration
+AFTER INSERT ON social_internship_registration
+FOR EACH ROW
+BEGIN
+    INSERT INTO social_internship_attendance (user_id, day_one_attendance_status, day_two_attendance_status, day_three_attendance_status, day_four_attendance_status, day_five_attendance_status, day_six_attendance_status, day_seven_attendance_status, day_eight_attendance_status, day_nine_attendance_status, day_ten_attendance_status)
+    VALUES (NEW.user_id, 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending');
+END //
+DELIMITER ;
 

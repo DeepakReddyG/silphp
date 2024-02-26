@@ -72,8 +72,10 @@
 .sidebar-in-link {
     background-color: rgb(30, 30, 30);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 .sidebar-in-link a {
     display: flex;
@@ -85,3 +87,19 @@
     color: white;
     text-decoration: none;
 }
+
+.sidebar-in-link .dropdown-links {
+    display: none;
+    background-color: rgb(151, 0, 3);
+}
+
+.dropdown-links {
+    width: 100%;
+}
+
+.dropdown-links a {
+    color: white;
+    border-bottom: 1px solid bisque;
+    padding-left: 1rem;
+}
+

@@ -44,11 +44,9 @@ if ($result && mysqli_num_rows($result) > 0) {
             data: $("#updateForm").serialize(),
             dataType: "json", // Specify the expected data type
             success: function(response) {
-                // Display alert with the response message
                 showAlert(response.message, response.class);
             },
             error: function() {
-                // Handle error if needed
                 showAlert("Error submitting form", "error");
             }
         });
@@ -56,14 +54,12 @@ if ($result && mysqli_num_rows($result) > 0) {
 
     function showAlert(message, className) {
         alert(message);
-        // You can optionally add code here to apply styles based on the class
     }
 </script>
 
 </head>
 <body>
 
-<!-- Display confirmation message -->
 <div class="update-profile">
     <div class="update-profile-in">
         <div class="common-main-heading">
@@ -74,7 +70,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
         <div class="update-profile-main">
             <div class="update-profile-main-in">
-                <!-- Add an ID to the form for easier targeting with JavaScript -->
+
                 <form id="updateForm" method="post" action="update_profile/process_update_profile.php">
                     <label for="profile_picture">Profile Picture URL:</label>
                     <input type="text" name="profile_picture" value="<?php echo $profileData['profile_picture']; ?>" required>

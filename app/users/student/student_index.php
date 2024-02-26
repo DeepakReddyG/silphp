@@ -14,8 +14,10 @@ if ($_SESSION['user_type'] !== 'Student') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Home</title>
-    <link rel="stylesheet" href="./student_index.css">
     <link rel="stylesheet" href="./components/nav.css">
+    <style>
+        <?php include "student_index.css" ?>
+    </style>
 </head>
 <body>
    <div class="container">
