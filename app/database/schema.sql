@@ -1,7 +1,5 @@
--- Create the database if not exists
 CREATE DATABASE IF NOT EXISTS `silphp` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
--- Use the created database
 USE `silphp`;
 
 -- Create the users table
@@ -61,10 +59,7 @@ CREATE TABLE user_academic_profile (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Set a different delimiter
 DELIMITER //
-
--- Trigger to insert default data into user_academic_profile when a new user is added
 CREATE TRIGGER after_insert_user_academic
 AFTER INSERT ON users
 FOR EACH ROW
@@ -72,16 +67,11 @@ BEGIN
     INSERT INTO user_academic_profile (user_id, year_of_study, department, cluster, sil_section, CGPA)
     VALUES (NEW.id, 'NA', 'Not Specified', 0, 0, 0.0);
 END //
-
--- Reset the delimiter to semicolon
 DELIMITER ;
 
-
-
--- create table social internship
 create table social_internship_registration (
     id int not null auto_increment,
-    user_id int not null,
+    user_id int not null unique,
     internship_domain varchar(255) not null,
     internship_registration_approval_status enum('Approved', 'Pending', 'Rejected') not null default 'Pending',
     created_at timestamp not null default current_timestamp,
@@ -106,7 +96,6 @@ create table social_internship_attendance (
     foreign key (user_id) references users(id)
 );
 
--- write a trigger when a new user is added to the social_internship_registration table to insert default data into social_internship_attendance table
 DELIMITER //
 CREATE TRIGGER after_insert_social_internship_registration
 AFTER INSERT ON social_internship_registration
@@ -114,6 +103,18 @@ FOR EACH ROW
 BEGIN
     INSERT INTO social_internship_attendance (user_id, day_one_attendance_status, day_two_attendance_status, day_three_attendance_status, day_four_attendance_status, day_five_attendance_status, day_six_attendance_status, day_seven_attendance_status, day_eight_attendance_status, day_nine_attendance_status, day_ten_attendance_status)
     VALUES (NEW.user_id, 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending');
-END //
+END;
 DELIMITER ;
 
+create table internship_report_submission (
+    id int not null auto_increment,
+    user_id int not null,
+    day_id int not null unique,
+    check (day_id between 1 and 10),
+    report_link varchar(255) not null default 'NA',
+    report_accepted_status enum('Accepted', 'Pending', 'Rejected') not null default 'Pending',
+    remarks varchar(255) not null default 'NA',
+    created_at timestamp not null default current_timestamp,
+    primary key (id),
+    foreign key (user_id) references users(id)
+);

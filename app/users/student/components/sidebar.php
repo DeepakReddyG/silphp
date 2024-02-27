@@ -26,7 +26,7 @@
                 <a href="#" onclick="toggleDropdown()">Social Internship</a>
                 <!-- Add the dropdown links within a container div -->
                 <div class="dropdown-links">
-                    <a href="#"><li>Internship Registration</li></a>
+                    <a href="./template_social_internship_register.php"><li>Internship Registration</li></a>
                     <a href="#"><li>Attendance Register</li></a>
                     <a href="#"><li>Internship Submissions</li></a>
                 </div>
