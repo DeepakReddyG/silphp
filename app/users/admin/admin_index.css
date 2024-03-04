@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body { 
+    background-color: #e5e5f7;
+    opacity: 0.9;
+    background-image: radial-gradient(#970003 0.5px, #e5e5f7 0.5px);
+    background-size: 10px 10px;
+}
+.container {
+    height: 100vh;
+}
+.container-in {
+    height: 88vh;
+    display: flex;
+    border-right: 2px solid black;
+}
+.container-in-one {
+    width: 20%;
+    background-color: black;
+}
+.container-in-one-in {
+    width: 100%;
+    margin: auto;
+}
+.container-in-one-in-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.container-in-one-in-link a {
+    color: white;
+    background-color: rgb(52, 52, 52);
+    width: 100%;
+    padding: 0.4rem;
+    text-decoration: none;
+    border-bottom: 2px solid bisque;
+}
+
+
+.container-in-two {
+    width: 80%;
+    padding: 1rem;
+    height: 86vh;
+    overflow-y: scroll;
+}
+
+.footer {
+    background-color: rgb(151, 0, 3);
+}
+.container-in-two-in {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+}
+
+.container-in-two-in-one {
+    width: 100%;
+}
+ul.breadcrumb {
+    list-style: none;
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    /* padding: 8px; */
+    color: rgb(73, 73, 73);
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    color: rgb(73, 73, 73);
+    text-decoration: none;
+  }
+  ul.breadcrumb li a:hover {
+    color: rgb(73, 73, 73);
+    text-decoration: underline;
+  }
+
+  .common-main-heading {
+    width: 100%;
+    background-color: rgb(151, 0, 3);
+    margin-top: 1rem;
+  }
+  .common-main-heading-in {
+    width: 100%;
+    padding: 0.2rem 1rem;
+  } 
+
+.common-main-heading-in h1 {
+    font-size: 1.5rem;
+    color: white;
+}

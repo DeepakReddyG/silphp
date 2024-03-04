@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include_once('../../auth/session_checkup.php');
 
 if ($_SESSION['user_type'] !== 'Student') {
@@ -22,12 +26,12 @@ if ($_SESSION['user_type'] !== 'Student') {
 <body>
    <div class="container">
         <div class="nav">
-            <?php include './components/navbar.php'; ?>
+            <?php include '../components/navbar.php'; ?>
         </div>
 
         <div class="container-in">
             <div class="container-in-one">
-                <?php include './components/sidebar.php'; ?>
+                <?php include '../components/sidebar.php'; ?>
             </div>
             <div class="container-in-two">
                 <div class="container-in-two-in">
@@ -45,7 +49,7 @@ if ($_SESSION['user_type'] !== 'Student') {
         </div>
 
         <div class="footer">
-            <?php include './components/footer.php'; ?>
+            <?php include '../components/footer.php'; ?>
         </div>
    </div>
 </body>

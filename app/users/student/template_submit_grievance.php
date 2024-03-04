@@ -1,7 +1,9 @@
 <?php
-// display errors
-error_reporting(E_ALL);
+// errors
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include_once('../../auth/session_checkup.php');
 
 if ($_SESSION['user_type'] !== 'Student') {
@@ -16,10 +18,9 @@ if ($_SESSION['user_type'] !== 'Student') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
+    <title>Academic Profile</title>
     <link rel="stylesheet" href="./student_index.css">
     <link rel="stylesheet" href="./components/nav.css">
-    <link rel="stylesheet" href="./update_profile/update_profile.css">
 </head>
 <body>
    <div class="container">
@@ -36,12 +37,11 @@ if ($_SESSION['user_type'] !== 'Student') {
                     <div class="container-in-two-in-one">
                         <ul class="breadcrumb">
                             <li><a href="#">Student</a></li>
-                            <li><a href="#">Profile Update</a></li>
+                            <li><a href="#">Academic Profile Update</a></li>
                         </ul>
                     </div>
                     <div class="container-in-two-in-two">
-                        <?php include './social_internship/social_internship_register.php'; ?>
-
+                        <?php include './grievances/submit_grievance.php'; ?>
                     </div>
                 </div>
             </div>

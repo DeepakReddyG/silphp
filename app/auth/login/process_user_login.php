@@ -26,9 +26,9 @@ if (
             mysqli_query($conn, $updateQuery);
 
             if ($user['user_type'] == 'Student') {
-                header("Location: ../../users/student/student_index.php"); // Redirect student to student_index.php
+                header("Location: ../../users/student/student_index.php");
             } elseif ($user['user_type'] == 'Admin') {
-                header("Location: admin_index.php"); // Redirect admin to admin_index.php
+                header("Location: ../../users/admin/admin_index.php");
             } else {
                 header("Location: default_page.php");
             }

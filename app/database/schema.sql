@@ -104,7 +104,9 @@ BEGIN
     INSERT INTO social_internship_attendance (user_id, day_one_attendance_status, day_two_attendance_status, day_three_attendance_status, day_four_attendance_status, day_five_attendance_status, day_six_attendance_status, day_seven_attendance_status, day_eight_attendance_status, day_nine_attendance_status, day_ten_attendance_status)
     VALUES (NEW.user_id, 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending', 'Pending');
 END;
+//
 DELIMITER ;
+
 
 create table internship_report_submission (
     id int not null auto_increment,
@@ -114,6 +116,56 @@ create table internship_report_submission (
     report_link varchar(255) not null default 'NA',
     report_accepted_status enum('Accepted', 'Pending', 'Rejected') not null default 'Pending',
     remarks varchar(255) not null default 'NA',
+    created_at timestamp not null default current_timestamp,
+    primary key (id),
+    foreign key (user_id) references users(id)
+);
+
+-- Create the club_categories table
+CREATE TABLE club_categories (
+    id INT NOT NULL AUTO_INCREMENT,
+    category_name VARCHAR(255) NOT NULL UNIQUE,
+    category_description TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Create the clubs table
+CREATE TABLE clubs (
+    id INT NOT NULL AUTO_INCREMENT,
+    club_name VARCHAR(255) NOT NULL UNIQUE,
+    club_logo TEXT NOT NULL DEFAULT 'NA',
+    club_category INT NOT NULL,
+    club_domain VARCHAR(255) NOT NULL,
+    club_description TEXT NOT NULL,
+    club_head VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (club_category) REFERENCES club_categories(id)
+);
+
+
+CREATE TABLE club_registration (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    club_category INT NOT NULL,
+    club_id INT NOT NULL,
+    registration_approval_status ENUM('Approved', 'Pending', 'Rejected') NOT NULL DEFAULT 'Pending',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY unique_user_category (user_id, club_category), -- Unique constraint for one club in each category
+    UNIQUE KEY unique_user_club (user_id, club_id), -- Unique constraint for not registering the same club twice
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (club_category) REFERENCES club_categories(id),
+    FOREIGN KEY (club_id) REFERENCES clubs(id)
+);
+
+create table grievances (
+    id int not null auto_increment,
+    user_id int not null,
+    grievance_title varchar(255) not null,
+    grievance_description text not null,
+    grievance_status enum('Pending', 'Resolved') not null default 'Pending',
     created_at timestamp not null default current_timestamp,
     primary key (id),
     foreign key (user_id) references users(id)

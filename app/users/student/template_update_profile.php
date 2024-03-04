@@ -21,12 +21,12 @@ if ($_SESSION['user_type'] !== 'Student') {
 <body>
    <div class="container">
         <div class="nav">
-            <?php include './components/navbar.php'; ?>
+            <?php include '../components/navbar.php'; ?>
         </div>
 
         <div class="container-in">
             <div class="container-in-one">
-                <?php include './components/sidebar.php'; ?>
+                <?php include '../components/sidebar.php'; ?>
             </div>
             <div class="container-in-two">
                 <div class="container-in-two-in">
@@ -45,7 +45,7 @@ if ($_SESSION['user_type'] !== 'Student') {
         </div>
 
         <div class="footer">
-            <?php include './components/footer.php'; ?>
+            <?php include '../components/footer.php'; ?>
         </div>
    </div>
 </body>

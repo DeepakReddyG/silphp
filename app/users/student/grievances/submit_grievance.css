@@ -1,0 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-grievance {
+    width: 100%;
+}
+.submit-grievance-in {
+    width: 100%;
+}
+.submit-grievance-in form {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+.submit-grievance-in form label{
+    font-size: 1rem;
+
+}
+.submit-grievance-in form input {
+    width: 100%;
+    padding: 0.2rem;
+    font-size: 1rem;
+    border: 1px solid #000;
+    border-radius: 0px;
+    outline: none;
+    margin-top: 0.3rem;
+}
+
+.submit-grievance-in form textarea {
+    width: 100%;
+    padding: 0.2rem;
+    font-size: 1rem;
+    border: 1px solid #000;
+    border-radius: 0px;
+    outline: none;
+    margin-top: 0.3rem;
+    /* number of lines is 50 */
+    height: 20vh;
+}
+
+.submit-grievance-in form button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #000;
+    border-radius: 0px;
+    outline: none;
+    margin-top: 0.3rem;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}

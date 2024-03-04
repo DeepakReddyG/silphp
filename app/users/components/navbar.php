@@ -1,9 +1,22 @@
 <?php
+
+// errors
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 include_once('../../auth/session_checkup.php');
 
-if ($_SESSION['user_type'] !== 'Student') {
+// if ($_SESSION['user_type'] !== 'Student' || $_SESSION['user_type'] !== 'Admin') {
 
+if (!$_SESSION['user_id']) {
     header("Location: ../../access_denied.php");
+    $user_id = $_SESSION['user_id'];
+    $query = "SELECT username FROM users WHERE id = $user_id";
+    $result = mysqli_query($conn, $query);
+    $user = mysqli_fetch_assoc($result);
+    $username = $user['username'];
+
     exit();
 }
 ?>

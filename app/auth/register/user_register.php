@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="email" name="email" id="email" required>
                     <label for="password">Password:</label>
                     <input type="password" name="password" required>
+                    <label for="confirm_password">Confirm Password:</label>
                     <button type="submit">Register</button>
                     <a href="../login/user_login.php">Already a registered user?</a>
                 </div>    

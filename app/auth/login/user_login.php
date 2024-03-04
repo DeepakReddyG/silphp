@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <div class="login-form-in-one-form-in">
                         <label for="username">Username:</label>
-                        <input type="text" name="username" placeholder="Registered ID Number" required pattern=".{10}" title="Username must be exactly 10 characters long">
+                        <input type="text" name="username" placeholder="Registered ID Number" required title="Username must be exactly 10 characters long">
 
                         <label for="password">Password:</label>
                         <input type="password" name="password" required>

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.view-clubs-table {
+    width: 100%;
+}
+.view-clubs-table-in {
+    width: 100%;
+}
+.view-clubs-table-in-body {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.view-clubs-table-in-body table {
+    border: 2px solid black;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+/* make header sticky */
+.view-clubs-table-in-body table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: black;
+    color: white;
+    border: 1px solid grey;
+    width: 100%;
+    padding: 0.3rem;
+}
+
+.view-clubs-table-in-body table thead th:first-child {
+    width: 5%;
+}
+.view-clubs-table-in-body table thead th:nth-child(2) {
+    width: 25%;
+}
+.view-clubs-table-in-body table thead th:nth-child(3) {
+    width: 10%;
+}
+.view-clubs-table-in-body table thead th:nth-child(4) {
+    width: 30%;
+}
+.view-clubs-table-in-body table thead th:nth-child(5) {
+    width: 30%;
+}
+
+
+.view-clubs-table-in-body table td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}

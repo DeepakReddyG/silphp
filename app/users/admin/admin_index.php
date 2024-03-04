@@ -1,10 +1,10 @@
 <?php
-// display errors
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once('../../auth/session_checkup.php');
 
-if ($_SESSION['user_type'] !== 'Student') {
+if ($_SESSION['user_type'] !== 'Admin') {
 
     header("Location: ../../access_denied.php");
     exit();
@@ -16,31 +16,31 @@ if ($_SESSION['user_type'] !== 'Student') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
-    <link rel="stylesheet" href="./student_index.css">
+    <title>Student Home</title>
     <link rel="stylesheet" href="./components/nav.css">
-    <link rel="stylesheet" href="./update_profile/update_profile.css">
+    <style>
+        <?php include "admin_index.css" ?>s
+    </style>
 </head>
 <body>
    <div class="container">
         <div class="nav">
-            <?php include '../components/navbar.php'; ?>
+            <?php include '../student/components/navbar.php'; ?>
         </div>
 
         <div class="container-in">
             <div class="container-in-one">
-                <?php include '../components/sidebar.php'; ?>
+                <?php include '../student/components/sidebar.php'; ?>
             </div>
             <div class="container-in-two">
                 <div class="container-in-two-in">
                     <div class="container-in-two-in-one">
                         <ul class="breadcrumb">
                             <li><a href="#">Student</a></li>
-                            <li><a href="#">Profile Update</a></li>
+                            <li><a href="#">Home</a></li>
                         </ul>
                     </div>
                     <div class="container-in-two-in-two">
-                        <?php include './social_internship/social_internship_register.php'; ?>
 
                     </div>
                 </div>
@@ -48,7 +48,7 @@ if ($_SESSION['user_type'] !== 'Student') {
         </div>
 
         <div class="footer">
-            <?php include '../components/footer.php'; ?>
+            <?php include '../student/components/footer.php'; ?>
         </div>
    </div>
 </body>
