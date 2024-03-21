@@ -1,0 +1,47 @@
+.post-attendance {
+    width: 100%;
+}
+.post-attendance-in {
+    width: 100%;
+}
+.post-attendance-in table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.post-attendance-in table th {
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    border: 1px solid grey;
+    color: white;;
+}
+.post-attendance-in table td {
+    padding: 5px;
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+    text-align: left;
+}
+
+.post-attendance-in form button {
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.post-attendance-in label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#day {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 0px;
+    margin: 10px 0px;
+}

@@ -1,11 +1,11 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include_once('../../auth/session_checkup.php');
 
+if ($_SESSION['user_type'] !== 'Admin') {
 
-
-// both Student as well as Admin can access this page
-
-if (!isset($_SESSION['user_type'])) {
     header("Location: ../../access_denied.php");
     exit();
 }
@@ -16,9 +16,11 @@ if (!isset($_SESSION['user_type'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Profile</title>
-    <link rel="stylesheet" href="./student_index.css">
+    <title>Student Home</title>
     <link rel="stylesheet" href="./components/nav.css">
+    <style>
+        <?php include "admin_index.css" ?>
+    </style>
 </head>
 <body>
    <div class="container">
@@ -35,11 +37,11 @@ if (!isset($_SESSION['user_type'])) {
                     <div class="container-in-two-in-one">
                         <ul class="breadcrumb">
                             <li><a href="#">Student</a></li>
-                            <li><a href="#">Academic Profile Update</a></li>
+                            <li><a href="#">Home</a></li>
                         </ul>
                     </div>
                     <div class="container-in-two-in-two">
-                        <?php include './update_academic_profile/update_academic_profile.php'; ?>
+                        <?php include 'manage_users/manage_users.php'; ?>
                     </div>
                 </div>
             </div>

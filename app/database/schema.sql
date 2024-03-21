@@ -170,3 +170,44 @@ create table grievances (
     primary key (id),
     foreign key (user_id) references users(id)
 );
+
+CREATE TABLE courses (
+    id INT NOT NULL AUTO_INCREMENT,
+    course_name VARCHAR(255) NOT NULL,
+    course_code VARCHAR(255) NOT NULL,
+    course_description TEXT NOT NULL,
+    course_image_url VARCHAR(255) NOT NULL,
+    course_points INT NOT NULL,
+    course_offering_club VARCHAR(255) NOT NULL,
+    course_duration_hrs INT NOT NULL,
+    course_student_administrator VARCHAR(255) NOT NULL,
+    course_faculty_administrator VARCHAR(255) NOT NULL,
+    course_approval_status ENUM('Approved', 'Pending', 'Rejected') NOT NULL DEFAULT 'Pending',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE course_registration (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    course_id INT NOT NULL,
+    registration_approval_status ENUM('Approved', 'Pending', 'Rejected') NOT NULL DEFAULT 'Pending',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY unique_user_course (user_id, course_id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (course_id) REFERENCES courses(id)
+);
+
+CREATE TABLE attendance (
+    id INT NOT NULL AUTO_INCREMENT,
+    course_registration_id INT NOT NULL,
+    user_id INT NOT NULL,
+    attendance_date DATE NOT NULL,
+    attended BOOLEAN NOT NULL DEFAULT false,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (course_registration_id) REFERENCES course_registration(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+

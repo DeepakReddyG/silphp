@@ -1,8 +1,7 @@
 <?php
 include_once('../../auth/session_checkup.php');
 
-if ($_SESSION['user_type'] !== 'Student') {
-
+if (!isset($_SESSION['user_type'])) {
     header("Location: ../../access_denied.php");
     exit();
 }

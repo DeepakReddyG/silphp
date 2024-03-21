@@ -19,18 +19,18 @@ if ($_SESSION['user_type'] !== 'Admin') {
     <title>Student Home</title>
     <link rel="stylesheet" href="./components/nav.css">
     <style>
-        <?php include "admin_index.css" ?>s
+        <?php include "admin_index.css" ?>
     </style>
 </head>
 <body>
    <div class="container">
         <div class="nav">
-            <?php include '../student/components/navbar.php'; ?>
+            <?php include '../components/navbar.php'; ?>
         </div>
 
         <div class="container-in">
             <div class="container-in-one">
-                <?php include '../student/components/sidebar.php'; ?>
+                <?php include '../components/sidebar.php'; ?>
             </div>
             <div class="container-in-two">
                 <div class="container-in-two-in">
@@ -41,14 +41,15 @@ if ($_SESSION['user_type'] !== 'Admin') {
                         </ul>
                     </div>
                     <div class="container-in-two-in-two">
-
+                        <!-- display the username -->
+                        <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <?php include '../student/components/footer.php'; ?>
+            <?php include '../components/footer.php'; ?>
         </div>
    </div>
 </body>

@@ -7,9 +7,9 @@ error_reporting(E_ALL);
 
 include_once('../../auth/session_checkup.php');
 
-// if ($_SESSION['user_type'] !== 'Student' || $_SESSION['user_type'] !== 'Admin') {
+// if the user is not logged in, redirect to the access_denied.php page
+if (!isset($_SESSION['user_id'])) {
 
-if (!$_SESSION['user_id']) {
     header("Location: ../../access_denied.php");
     $user_id = $_SESSION['user_id'];
     $query = "SELECT username FROM users WHERE id = $user_id";
@@ -36,6 +36,10 @@ if (!$_SESSION['user_id']) {
                 <a href="./student_index.php"><h1>SAC Activities</h1></a>
             </div>
             <div class="navigation-bar-in-two">
+                <!-- if the user role is Admin, display "You are admin" and also display the user_id in the session -->
+                <?php if ($_SESSION['user_type'] === 'Admin') : ?>
+                    <p>admin_</p>
+                <?php endif; ?>
                 <?php echo $_SESSION['username']; ?> 
                 <a href="../../auth/logout/logout.php">Logout</a>
             </div>

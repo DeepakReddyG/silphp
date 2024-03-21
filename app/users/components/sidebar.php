@@ -12,29 +12,31 @@
 <body>
     <?php
 
-        $userRole = 'Student';
+        $userRole = $_SESSION['user_type'];
     ?>
 
     <div class="sidebar">
         <div class="sidebar-in">
             <?php if ($userRole === 'Student') { ?>
-                <!-- accessible by student -->
                 <div class="sidebar-in-link">
                     <a href="./template_update_profile.php">Update Profile</a>
                 </div>
 
-                <!-- accessible by student -->
                 <div class="sidebar-in-link">
                     <a href="./template_update_academic_profile.php">Update Academic Profile</a>
                 </div>
 
                 <div class="sidebar-in-link">
-                    <a href="./template_view_clubs.php">View Clubs</a>
+                    <a href="#" onclick="toggleDropdown()">SAC Clubs</a>
+                    <div class="dropdown-links-one dropdown-links">
+                        <a href="./template_view_clubs.php"><li>View Clubs</li></a>
+                        <a href="./template_view_attendance.php"><li>Club Registration</li></a>
+                    </div>
                 </div>
 
                 <div class="sidebar-in-link">
-                    <a href="#" onclick="toggleDropdown()">Social Internship</a>
-                    <div class="dropdown-links">
+                    <a href="#" onclick="toggleDropdownTwo()">Social Internship</a>
+                    <div class="dropdown-links-two dropdown-links">
                         <a href="./template_social_internship_register.php"><li>Internship Registration</li></a>
                         <a href="./template_view_attendance.php"><li>Attendance Register</li></a>
                     </div>
@@ -45,29 +47,53 @@
                 </div>
 
 
-            <?php } elseif ($userRole === 'Admin') { ?>
 
 
+
+        
+            <?php } else if ($userRole === 'Admin') { ?>
+
                 <div class="sidebar-in-link">
-                    <a href="./template_update_academic_profile.php">Update Academic Profile</a>
+                    <a href="../admin/dashboard/dashboard.php">Dashboard</a>
                 </div>
 
                 <div class="sidebar-in-link">
-                    <a href="./template_update_academic_profile.php">Manage Users</a>
+                    <a href="../student/template_update_profile.php">Update Profile</a>
                 </div>
 
                 <div class="sidebar-in-link">
-                    <a href="../admin/social_internship/post_attendance.php"><li>Attendance Submissions</li></a>
+                    <a href="../student/template_update_academic_profile.php">Update Academic Profile</a>
+                </div>
+
+                <div class="sidebar-in-link">
+                    <a href="../admin/template_manage_users.php">Manage Users</a>
                 </div>
                 <div class="sidebar-in-link">
-                    <a href="../admin/social_internship/post_attendance.php"><li>Attendance Submissions</li></a>
+                    <a href="../admin/template_manage_si_attendance.php">Manage SI Attendance</a>
+                </div>
+
+            
+                <div class="sidebar-in-link">
+                    <a href="../admin/dashboard/dashboard.php">Manage Clubs</a>
                 </div>
                 <div class="sidebar-in-link">
-                    <a href="../admin/social_internship/post_attendance.php"><li>Manage Categoties</li></a>
+                    <a href="../admin/dashboard/dashboard.php">Club Categories</a>
+                </div>
+
+                <div class="sidebar-in-link">
+                    <a href="../admin/dashboard/dashboard.php">Activities Catelog</a>
+                </div>
+
+                <div class="sidebar-in-link">
+                    <a href="../admin/dashboard/dashboard.php">View Reports</a>
                 </div>
                 <div class="sidebar-in-link">
-                    <a href="../admin/social_internship/post_attendance.php"><li>Manage Clubs</li></a>
+                    <a href="../admin/dashboard/dashboard.php">Student Council</a>
                 </div>
+                <div class="sidebar-in-link">
+                    <a href="../admin/dashboard/dashboard.php">Logistics</a>
+                </div>
+            
 
             <?php } ?>
         </div>
@@ -78,6 +104,12 @@
             var dropdown = document.querySelector('.dropdown-links');
             dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
         }
+
+        function toggleDropdownTwo() {
+            var dropdown = document.querySelector('.dropdown-links-two');
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        }
+
     </script>
 </body>
 </html>

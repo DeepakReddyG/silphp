@@ -1,0 +1,24 @@
+.manage-users {
+    width: 100%;    
+    margin-top: 1rem;
+} 
+.manage-users-in {
+    width: 100%;
+}
+.manage-users-in table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.manage-users-in table th {
+    background-color: black;
+    border: 1px solid grey;
+    text-align: left;
+    color: white;
+    padding: 5px;
+}
+.manage-users-in table td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+    background-color: white;
+}
